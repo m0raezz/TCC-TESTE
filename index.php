@@ -20,25 +20,33 @@
 <body>
 
     <!-- Inicio NavBar-->
-    <nav class="navbar navbar-expand-lg ">
-        <div class="container-fluid ">
-            <a class="navbar-brand text-light" href="#">Etec</a>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container-fluid">
+            <!-- Navbar content on the left -->
+            <a class="navbar-brand" href="#">
+                <img src="images/logo3.png" width="45" height="48" alt="Logo">
+            </a>
+            <a class="navbar-brand text-light" href="#">Etec Bebedouro</a>
+            
+            <!-- Navbar toggler button for mobile view -->
             <button class="text-light navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="text-light navbar-toggler-icon"></span>
             </button>
+            
+            <!-- Navbar links and dropdown -->
             <div class="text-light collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="text-light nav-link active" aria-current="page" href="#">Inicio</a>
+                        <a class="text-light nav-link active me-2" aria-current="page" href="#im">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="text-light nav-link" href="#">Sobre</a>
+                        <a class="text-light nav-link me-2" href="#eq">Equipe</a>
                     </li>
                     <li class="nav-item">
-                        <a class="text-light nav-link" href="#">Equipe</a>
+                        <a class="text-light nav-link me-2" href="#sb">Sobre</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="text-light nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="text-light nav-link dropdown-toggle me-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             CURSOS
                         </a>
                         <ul class="dropdown-menu">
@@ -50,17 +58,24 @@
                         </ul>
                     </li>
                 </ul>
+                
+                <!-- Logo aligned to the right -->
+                <a href="#" class="ms-auto">
+                    <img src="images/login.png" width="45" height="48" alt="Logo">
+                </a>
             </div>
         </div>
     </nav>
     <!-- Fim NavBar-->
 
-    <div class="container1">
-        <img class="imagem1" src="Images/Etec_Frente.jpg" alt="Frente da Etec">
-        <div class="texto-sobre-imagem">Etec Bebedouro</div> 
+    <!-- Inicio Imagem -->
+    <div class="container1" id="im">
+        <img class="imagem1" src="Images/banner.png" alt="Frente da Etec">
     </div>
+    <!-- Fim Imagem -->
 
-    <div class="container mt-5">
+    <!-- Inicio Equipe -->
+    <div class="container mt-5" id="eq">
         <p class="text-center mb-4 equipe-titulo">EQUIPE</p>
         <div class="row">
             <div class="col-md-3 mb-4">
@@ -74,7 +89,7 @@
             </div>
             <div class="col-md-3 mb-4">
                 <div class="card" style="width: 100%;">
-                <img src="Images/imagem.jpg" class="card-img-top" alt="Imagem do Card 2">
+                    <img src="Images/imagem.jpg" class="card-img-top" alt="Imagem do Card 2">
                     <div class="card-body">
                         <h5 class="card-title">Julia Sorrente</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -83,7 +98,7 @@
             </div>
             <div class="col-md-3 mb-4">
                 <div class="card" style="width: 100%;">
-                <img src="Images/imagem.jpg" class="card-img-top" alt="Imagem do Card 3">
+                    <img src="Images/imagem.jpg" class="card-img-top" alt="Imagem do Card 3">
                     <div class="card-body">
                         <h5 class="card-title">Marcos Alexandre</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -92,7 +107,7 @@
             </div>
             <div class="col-md-3 mb-4">
                 <div class="card" style="width: 100%;">
-                <img src="Images/imagem.jpg" class="card-img-top" alt="Imagem do Card 4">
+                    <img src="Images/imagem.jpg" class="card-img-top" alt="Imagem do Card 4">
                     <div class="card-body">
                         <h5 class="card-title">Letycia Conde</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -101,6 +116,22 @@
             </div>
         </div>
     </div>
+    <!-- Fim Equipe -->
+
+    <!-- Inicio Sobre -->
+    <p class="text-center mb-4 equipe-titulo" id="sb">SOBRE O PROJETO</p>
+    <!-- Fim Sobre -->
+
+    <!-- Fim Footer -->
+    <footer class="bg-body-tertiary text-center text-lg-start">
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
+            © 2024 Integra Etec:
+            <a class="text-body" href="https://etecbebedouro.com.br">etecbebedouro.com.br</a>
+        </div>
+        <!-- Copyright -->
+    </footer>
+    <!-- Fim Footer -->
 
 </body>
 </html>

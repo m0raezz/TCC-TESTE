@@ -8,13 +8,13 @@ body::-webkit-scrollbar {
   }
   
   body::-webkit-scrollbar-track {
-    background: #5f0a16;       /* cor de fundo */
+    background: #ffffff;       /* cor de fundo */
   }
   
   body::-webkit-scrollbar-thumb {
-    background-color: #949192;    /* cor do scroll */
-    border-radius: 20px;       /* bordar do scroll */
-    border: 1px solid #5f0a16;
+    background-color: #313131;    /* cor do scroll */
+    border-radius: 5px;       /* bordar do scroll */
+
   }
 
 
@@ -26,10 +26,8 @@ body::-webkit-scrollbar {
 }
 
 .navbar {
-    background-color: #5f0a16;
+    background-color: #83082A;
     color: aliceblue;
-    position: fixed;
-    z-index: 1000;
     top: 0;
     left: 0;
     width: 100%;
@@ -84,6 +82,6 @@ body::-webkit-scrollbar {
 .equipe-titulo {
     font-size: 2rem; /* Tamanho do texto */
     font-weight: bold; /* Negrito */
-    color: #5f0a16; /* Cor do texto */
+    color: #83082A; /* Cor do texto */
     margin-bottom: 1rem; /* Espaço abaixo do título */
 }
