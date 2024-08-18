@@ -83,7 +83,7 @@
                     <img src="Images/imagem.jpg" class="card-img-top" alt="Imagem do Card 1">
                     <div class="card-body">
                         <h5 class="card-title">Renan Moraes</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <p class="card-text">Responsavel pela parte Frontend e Backend.</p>
                     </div>
                 </div>
             </div>
@@ -92,7 +92,7 @@
                     <img src="Images/imagem.jpg" class="card-img-top" alt="Imagem do Card 2">
                     <div class="card-body">
                         <h5 class="card-title">Julia Sorrente</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <p class="card-text">responsavel pela Parte Backend e Frontend do site.</p>
                     </div>
                 </div>
             </div>
@@ -101,7 +101,7 @@
                     <img src="Images/imagem.jpg" class="card-img-top" alt="Imagem do Card 3">
                     <div class="card-body">
                         <h5 class="card-title">Marcos Alexandre</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <p class="card-text">Responsavel pela parte Backend do site.</p>
                     </div>
                 </div>
             </div>
@@ -110,7 +110,7 @@
                     <img src="Images/imagem.jpg" class="card-img-top" alt="Imagem do Card 4">
                     <div class="card-body">
                         <h5 class="card-title">Letycia Conde</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <p class="card-text">Responsavel pela parte Frontend do site.</p>
                     </div>
                 </div>
             </div>
