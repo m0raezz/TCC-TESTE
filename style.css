@@ -12,7 +12,7 @@ body::-webkit-scrollbar {
   }
   
   body::-webkit-scrollbar-thumb {
-    background-color: #E0C1CA;    /* cor do scroll */
+    background-color: #949192;    /* cor do scroll */
     border-radius: 20px;       /* bordar do scroll */
     border: 1px solid #5f0a16;
   }
