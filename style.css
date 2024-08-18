@@ -1,0 +1,89 @@
+* {
+    font-family: Poppins;
+    box-sizing: border-box; /* Inclui padding e bordas no cálculo da largura e altura */
+}
+
+body::-webkit-scrollbar {
+    width: 12px;               /* largura da barra de rolahem */
+  }
+  
+  body::-webkit-scrollbar-track {
+    background: #5f0a16;       /* cor de fundo */
+  }
+  
+  body::-webkit-scrollbar-thumb {
+    background-color: #E0C1CA;    /* cor do scroll */
+    border-radius: 20px;       /* bordar do scroll */
+    border: 1px solid #5f0a16;
+  }
+
+
+
+
+
+.dropdown-menu .dropdown-item {
+    background-color: #ffffff;
+}
+
+.navbar {
+    background-color: #5f0a16;
+    color: aliceblue;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.container1 {
+    position: relative;
+    overflow: hidden; 
+    width: 100%;
+    max-width: 100%; 
+}
+
+.imagem1 {
+    width: 100%;
+    height: auto;  
+}
+
+.texto-sobre-imagem {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 5vw; 
+    font-style: italic;
+    text-align: center;
+    padding: 10px;
+    max-width: 90%; 
+    box-sizing: border-box; 
+    word-wrap: break-word; 
+}
+
+/* Media query para telas menores */
+@media (max-width: 768px) {
+    .texto-sobre-imagem {
+        font-size: 12vw; 
+        padding: 5px; 
+    }
+}
+
+/* Ajustes dos Cards */
+.card {
+    border: none; /* Remove a borda padrão do card */
+}
+
+.card-img-top {
+    width: 100%; /* Garante que a imagem do card ocupe toda a largura do card */
+    height: auto; /* Mantém a proporção da imagem */
+}
+
+
+.equipe-titulo {
+    font-size: 2rem; /* Tamanho do texto */
+    font-weight: bold; /* Negrito */
+    color: #5f0a16; /* Cor do texto */
+    margin-bottom: 1rem; /* Espaço abaixo do título */
+}
