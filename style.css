@@ -45,20 +45,6 @@ body::-webkit-scrollbar {
     height: auto;  
 }
 
-.texto-sobre-imagem {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    font-size: 5vw; 
-    font-style: italic;
-    text-align: center;
-    padding: 10px;
-    max-width: 90%; 
-    box-sizing: border-box; 
-    word-wrap: break-word; 
-}
 
 /* Media query para telas menores */
 @media (max-width: 768px) {
