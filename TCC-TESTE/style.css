@@ -1,0 +1,87 @@
+* {
+    font-family: Poppins;
+    box-sizing: border-box; /* Inclui padding e bordas no cálculo da largura e altura */
+}
+
+body::-webkit-scrollbar {
+    width: 12px;               /* largura da barra de rolahem */
+  }
+  
+  body::-webkit-scrollbar-track {
+    background: #ffffff;       /* cor de fundo */
+  }
+  
+  body::-webkit-scrollbar-thumb {
+    background-color: #313131;    /* cor do scroll */
+    border-radius: 5px;       /* bordar do scroll */
+
+  }
+
+
+
+
+
+.dropdown-menu .dropdown-item {
+    background-color: #ffffff;
+}
+
+.navbar {
+    background-color: #83082A;
+    color: aliceblue;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.container1 {
+    position: relative;
+    overflow: hidden; 
+    width: 100%;
+    max-width: 100%; 
+}
+
+.imagem1 {
+    width: 100%;
+    height: auto;  
+}
+
+
+/* Media query para telas menores */
+@media (max-width: 768px) {
+    .texto-sobre-imagem {
+        font-size: 12vw; 
+        padding: 5px; 
+    }
+}
+
+/* Ajustes dos Cards */
+.card {
+    border: none; /* Remove a borda padrão do card */
+}
+
+.card-img-top {
+    width: 100%; /* Garante que a imagem do card ocupe toda a largura do card */
+    height: auto; /* Mantém a proporção da imagem */
+}
+
+
+.equipe-titulo {
+    font-size: 3rem; /* Tamanho do texto */
+    font-weight: bold; /* Negrito */
+    color: #83082A; /* Cor do texto */
+    margin-bottom: 1rem; /* Espaço abaixo do título */
+}
+
+
+.textpsb {
+    max-width: 100%;
+    margin: 0 auto;
+    text-align: justify; /* Justifica o texto */
+    font-size: 1.25rem; /* Define o tamanho da fonte */
+    line-height: 1.6; /* Aumenta a altura da linha para melhor legibilidade */
+}
+
+/* Estiliza o container da seção SOBRE */
+#sb {
+    padding: 2rem 1rem; /* Adiciona espaçamento ao redor da seção */
+}
