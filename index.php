@@ -19,21 +19,21 @@
 </head>
 <body>
 
-    <!-- Inicio NavBar-->
+    <!-- Start NavBar-->
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container-fluid">
-            <!-- Navbar content on the left -->
+            <!-- Navbar icon left -->
             <a class="navbar-brand" href="#">
                 <img src="images/logo3.png" width="45" height="48" alt="Logo">
             </a>
             <a class="navbar-brand text-light" href="#">Etec Bebedouro</a>
             
-            <!-- Navbar toggler button for mobile view -->
+            <!-- Navbar for mobile view -->
             <button class="text-light navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="text-light navbar-toggler-icon"></span>
             </button>
             
-            <!-- Navbar links and dropdown -->
+            <!-- Navbar dropdown -->
             <div class="text-light collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
@@ -59,24 +59,24 @@
                     </li>
                 </ul>
                 
-                <!-- Logo aligned to the right -->
-                <a href="#" class="ms-auto">
+                <!-- Login navbar right -->
+                <a href="./Pages/login.php" class="ms-auto">
                     <img src="images/login.png" width="45" height="48" alt="Logo">
                 </a>
             </div>
         </div>
     </nav>
-    <!-- Fim NavBar-->
+    <!-- End NavBar-->
 
-    <!-- Inicio Imagem -->
+    <!-- Start Image -->
     <div class="container1" id="im">
         <img class="imagem1" src="Images/banner.png" alt="Frente da Etec">
     </div>
-    <!-- Fim Imagem -->
+    <!-- End Imagem -->
 
-    <!-- Inicio Equipe -->
+    <!-- Start Developers -->
     <div class="container mt-5" id="eq">
-        <p class="text-center mb-4 equipe-titulo">EQUIPE</p>
+        <p class="text-center mb-4 equipe-titulo" >DESENVOLVEDORES</p>
         <div class="row">
             <div class="col-md-3 mb-4">
                 <div class="card" style="width: 100%;">
@@ -116,13 +116,29 @@
             </div>
         </div>
     </div>
-    <!-- Fim Equipe -->
+    <!-- End developers -->
 
-    <!-- Inicio Sobre -->
-    <p class="text-center mb-4 equipe-titulo" id="sb">SOBRE O PROJETO</p>
-    <!-- Fim Sobre -->
+<!-- Start about project -->
+<div class="container mt-5" id="sb">
+    <div class="row justify-content-center">
+        <div class="col-lg-8 col-md-10">
+            <p class="text-center mb-4 equipe-titulo">SOBRE O PROJETO</p>
+            <p class="textpsb card card-body">O site tem como objetivo compartilhar opiniões e
+                experiencias durante o ensino médio, assim ajudando os
+                novos alunos a escolherem o curso no qual mais irão se
+                identificar e deixá-los mais confortáveis para um novo ciclo
+                que logo se iniciará. Além de ajudar com os novos alunos,
+                esse site tem como finalidade ajudar a coordenação com
+                críticas que podem ser levadas em consideração para
+                melhoria da escola. Sendo assim diminuindo o número de
+                desistência durante os anos letivos, e o cansaço extremo
+                do aluno por fazer um curso em que não se identifique.</p>
+        </div>
+    </div>
+</div>
+<!-- End about project -->
 
-    <!-- Fim Footer -->
+    <!-- End Footer -->
     <footer class="bg-body-tertiary text-center text-lg-start">
         <!-- Copyright -->
         <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
@@ -131,7 +147,7 @@
         </div>
         <!-- Copyright -->
     </footer>
-    <!-- Fim Footer -->
+    <!-- End Footer -->
 
 </body>
 </html>
