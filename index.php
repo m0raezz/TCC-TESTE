@@ -50,7 +50,7 @@
                             CURSOS
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Administração - Novotec integrado</a></li>
+                            <li><a class="dropdown-item" href="./Pages/INFO.php">Administração - Novotec integrado</a></li>
                             <li><a class="dropdown-item" href="#">Informática p/ Internet - Novotec integrado</a></li>
                             <li><a class="dropdown-item" href="#">Recursos Humanos - Novotec integrado</a></li>
                             <li><a class="dropdown-item" href="#">Marketing - Novotec integrado</a></li>

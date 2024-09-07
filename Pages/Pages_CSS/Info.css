@@ -1,0 +1,71 @@
+body {
+    background-color: #6e6e6e; /* Cor de fundo semelhante ao fundo da imagem */
+    font-family: 'Poppins', sans-serif;
+}
+
+.avaliacoes-header {
+    background-color: #b0b0b0; /* Cor cinza claro */
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.avaliacoes-header span {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.badge {
+    font-size: 1.1rem;
+    margin-left: 10px;
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+
+.badge-success {
+    background-color: #00cc66;
+}
+
+.badge-danger {
+    background-color: #ff3333;
+}
+
+.badge-primary {
+    background-color: #3366ff;
+}
+
+.card {
+    background-color: #ffffff;
+    border-radius: 10px;
+}
+
+.user-icon {
+    width: 40px;
+    height: 40px;
+    background-color: black;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.stars {
+    font-size: 1.5rem;
+    color: #ffcc00; /* Estrelas amarelas */
+}
+
+.btn-animated {
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.btn-animated:hover {
+    transform: scale(1.2);
+}
+
+.container {
+    background-color: #83082A;
+    padding: 30px;
+    border-radius: 10px;
+    border-radius: 0% 0% 10px 10px;
+    
+}
