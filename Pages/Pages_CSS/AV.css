@@ -1,0 +1,194 @@
+body {
+    background-color: #6e6e6e; /* Cor de fundo semelhante ao fundo da imagem */
+    font-family: 'Poppins', sans-serif;
+}
+
+.avaliacoes-header {
+    background-color: #b0b0b0; /* Cor cinza claro */
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.avaliacoes-header span {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.badge {
+    font-size: 1.1rem;
+    margin-left: 10px;
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+
+.badge-success {
+    background-color: #00cc66;
+}
+
+.badge-danger {
+    background-color: #ff3333;
+}
+
+.badge-primary {
+    background-color: #3366ff;
+}
+
+.card {
+    background-color: #ffffff;
+    border-radius: 10px;
+}
+
+.user-icon {
+    width: 40px;
+    height: 40px;
+    background-color: black;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.stars {
+    font-size: 1.5rem;
+    color: #ffcc00; /* Estrelas amarelas */
+}
+
+.btn-animated {
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.btn-animated:hover {
+    transform: scale(1.2);
+}
+
+.container {
+    background-color: #83082A;
+    padding: 30px;
+    border-radius: 10px;
+    border-radius: 0% 0% 10px 10px;
+    
+}
+
+.tabela-lateral {
+    position: fixed;
+    top: 80px; /* Para ajustar abaixo do navbar */
+    left: 10px;
+    width: 200px;
+    height: 80%;
+    overflow-y: auto; /* Permitir rolagem se a tabela for maior que a tela */
+    border: 1px solid #ccc;
+    background-color: #f8f9fa;
+}
+
+.tabela-lateral table {
+    width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Aplica a fonte Poppins a todos os elementos e garante o box-sizing */
+* {
+    font-family: "Poppins", sans-serif;
+    box-sizing: border-box; /* Inclui padding e bordas no cálculo da largura e altura */
+}
+
+/* Personalização da barra de rolagem */
+body::-webkit-scrollbar {
+    width: 12px; /* Largura da barra de rolagem */
+}
+
+body::-webkit-scrollbar-track {
+    background: #ffffff; /* Cor de fundo */
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #313131; /* Cor do scroll */
+    border-radius: 5px; /* Bordas do scroll */
+}
+
+/* Estilo do menu suspenso no navbar */
+.dropdown-menu .dropdown-item {
+    background-color: #ffffff; /* Cor de fundo dos itens do menu */
+}
+
+/* Estilo da navbar */
+.navbar {
+    background-color: #83082A; /* Cor de fundo */
+    color: aliceblue; /* Cor do texto */
+    top: 0;
+    left: 0;
+    width: 100%; /* Largura total */
+}
+
+/* Container para imagens com largura máxima */
+.container1 {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-width: 100%;
+}
+
+/* Estilo para imagens responsivas */
+.imagem1 {
+    width: 100%;
+    height: auto; /* Mantém a proporção */
+}
+
+/* Media query para telas menores */
+@media (max-width: 768px) {
+    .texto-sobre-imagem {
+        font-size: 12vw; /* Ajusta o tamanho da fonte */
+        padding: 5px; /* Ajusta o padding */
+    }
+}
+
+/* Ajustes dos Cards */
+.card {
+    border: none; /* Remove a borda padrão do card */
+}
+
+.card-img-top {
+    width: 100%; /* Garante que a imagem do card ocupe toda a largura */
+    height: auto; /* Mantém a proporção da imagem */
+}
+
+/* Estilo para o título da equipe */
+.equipe-titulo {
+    font-size: 3rem; /* Tamanho do texto */
+    font-weight: bold; /* Negrito */
+    color: #83082A; /* Cor do texto */
+    margin-bottom: 1rem; /* Espaço abaixo do título */
+}
+
+/* Estilo para o texto justificado */
+.textpsb {
+    max-width: 100%;
+    margin: 0 auto;
+    text-align: justify; /* Justifica o texto */
+    font-size: 1.25rem; /* Tamanho da fonte */
+    line-height: 1.6; /* Altura da linha */
+}
+
+/* Estiliza o container da seção SOBRE */
+#sb {
+    padding: 2rem 1rem; /* Adiciona espaçamento ao redor da seção */
+}

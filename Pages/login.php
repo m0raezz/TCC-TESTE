@@ -44,7 +44,7 @@
                      <input type="password" class="form-control" placeholder="Código">
                   </div>
                   <button type="submit" class="btn text-white" color="white">Login</button>
-                  <a href="../index.php" class="btn text-white">Voltar</a>
+                  <a href="V_ADM.php" class="btn text-white">Voltar</a>
                </form>
             </div>
          </div>
