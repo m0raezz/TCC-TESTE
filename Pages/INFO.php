@@ -80,20 +80,28 @@
     <!-- Tabela Lateral Esquerda -->
     <div class="tabela-lateral">
         <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Segmento</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Gerando 40 segmentos -->
-                <tr><th scope="row">1</th><td>Segmento 1</td></tr>
-                <tr><th scope="row">2</th><td>Segmento 2</td></tr>
-                <tr><th scope="row">3</th><td>Segmento 3</td></tr>
-                <!-- Repita até 40 -->
-                <tr><th scope="row">40</th><td>Segmento 40</td></tr>
-            </tbody>
+        <?php
+        require "conexao.php";
+        $sql = "SELECT * FROM tbINFO ORDER BY nome";
+        $resultado = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
+        echo "<table>";
+            echo "<tr>";
+                echo "<th>Nome</th>";
+                echo "<th>RM</th>";
+
+            echo "</tr>";
+            while($linha=mysqli_fetch_array($resultado))
+            {
+                //Nas linhas abaixo obtém cada coluna da tabela de clientes e armazena em cada variável
+                $nome = $linha["nome"];
+                $rm = $linha["rm"];
+                //Exibe os dados
+                echo "<tr>";
+                    echo "<th>$nome</th>";
+                    echo "<th>$rm</th>";
+                echo "</tr>";
+            }
+    ?>
         </table>
     </div>
 
