@@ -35,7 +35,7 @@ select * from tbADM;
 
 create table tbINFO(
 	nome varchar(255),
-    rm varchar(10) primary key
+    rm int(10) primary key
 );
 drop table tbINFO;
 
