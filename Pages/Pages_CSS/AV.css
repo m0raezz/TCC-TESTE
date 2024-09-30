@@ -24,7 +24,8 @@ body {
 }
 
 .badge-success {
-    background-color: #00cc66;
+    background-color: #00ff80;
+    
 }
 
 .badge-danger {
@@ -38,6 +39,10 @@ body {
 .card {
     background-color: #ffffff;
     border-radius: 10px;
+    margin-bottom: 20px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Garante que os cards ocupem toda a largura */
 }
 
 .user-icon {
@@ -65,64 +70,45 @@ body {
 .container {
     background-color: #83082A;
     padding: 30px;
-    border-radius: 10px;
     border-radius: 0% 0% 10px 10px;
-    
 }
 
 .tabela-lateral {
     position: fixed;
-    top: 80px; /* Para ajustar abaixo do navbar */
-    left: 10px;
-    width: 410px;
-    height: 80%;
-    overflow-y: auto; /* Permitir rolagem se a tabela for maior que a tela */
+    top: 80px; /* Mantém a tabela logo abaixo do navbar */
+    left: 0; /* Fixa a tabela no canto esquerdo */
+    width: 250px; /* Ajuste a largura para uma medida menor */
+    height: 80%; /* Limita a altura */
+    overflow-y: auto; /* Permite rolagem se o conteúdo exceder a altura */
     border: 1px solid #ccc;
-    background-color: #f8f9fa;
+    z-index: 1; /* Garante que a tabela fique abaixo dos elementos com prioridade visual */
 }
 
-.tabela-lateral table {
-    width: 100%;
+.container-custom {
+    margin-left: 270px; /* Deixa o espaço da tabela lateral (250px + 20px de margem) e posiciona o conteúdo à direita */
+    padding: 20px;
+    max-width: calc(100% - 270px); /* Garante que o container ocupe o espaço à direita da tabela lateral */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Adiciona uma leve sombra ao container */
 }
 
+/* Media queries para responsividade */
+@media (max-width: 768px) {
+    .tabela-lateral {
+        position: relative;
+        width: 100%; /* Tabela ocupa toda a largura em telas pequenas */
+        height: auto; /* Altura automática */
+        margin-bottom: 20px; /* Espaçamento entre a tabela e o conteúdo em telas pequenas */
+    }
 
+    .container-custom {
+        margin-left: 0;
+        max-width: 100%; /* O container ocupará toda a largura */
+        padding: 10px;
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Aplica a fonte Poppins a todos os elementos e garante o box-sizing */
-* {
-    font-family: "Poppins", sans-serif;
-    box-sizing: border-box; /* Inclui padding e bordas no cálculo da largura e altura */
-}
-
-/* Personalização da barra de rolagem */
-body::-webkit-scrollbar {
-    width: 12px; /* Largura da barra de rolagem */
-}
-
-body::-webkit-scrollbar-track {
-    background: #ffffff; /* Cor de fundo */
-}
-
-body::-webkit-scrollbar-thumb {
-    background-color: #313131; /* Cor do scroll */
-    border-radius: 5px; /* Bordas do scroll */
+    .card {
+        margin-bottom: 15px; /* Ajusta o espaço entre os cards em telas menores */
+    }
 }
 
 /* Estilo do menu suspenso no navbar */
@@ -153,19 +139,7 @@ body::-webkit-scrollbar-thumb {
     height: auto; /* Mantém a proporção */
 }
 
-/* Media query para telas menores */
-@media (max-width: 768px) {
-    .texto-sobre-imagem {
-        font-size: 12vw; /* Ajusta o tamanho da fonte */
-        padding: 5px; /* Ajusta o padding */
-    }
-}
-
 /* Ajustes dos Cards */
-.card {
-    border: none; /* Remove a borda padrão do card */
-}
-
 .card-img-top {
     width: 100%; /* Garante que a imagem do card ocupe toda a largura */
     height: auto; /* Mantém a proporção da imagem */

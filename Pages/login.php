@@ -46,7 +46,7 @@
                   <input type="password" class="form-control" placeholder="Código" name="SenhaADM">
                </div>
                <button type="submit" class="btn text-white" color="white" name="login">Login</button>
-               <a href="V_ADM.php" class="btn text-white">Voltar</a>
+               <a href="../index.php" class="btn text-white">Voltar</a>
             </form>
          </div>
       </div>

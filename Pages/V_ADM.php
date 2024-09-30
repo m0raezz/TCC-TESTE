@@ -50,11 +50,11 @@
                             CURSOS
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="./Pages/INFO.php">Administração - Novotec integrado</a></li>
-                            <li><a class="dropdown-item" href="#">Informática p/ Internet - Novotec integrado</a></li>
-                            <li><a class="dropdown-item" href="#">Recursos Humanos - Novotec integrado</a></li>
-                            <li><a class="dropdown-item" href="#">Marketing - Novotec integrado</a></li>
-                            <li><a class="dropdown-item" href="#">Serviços Jurídicos - Novotec integrado</a></li>
+                            <li><a class="dropdown-item" href="2_ADM.php">Administração - Novotec integrado</a></li>
+                            <li><a class="dropdown-item" href="1_INFO">Informática p/ Internet - Novotec integrado</a></li>
+                            <li><a class="dropdown-item" href="4_RH">Recursos Humanos - Novotec integrado</a></li>
+                            <li><a class="dropdown-item" href="3_MKT">Marketing - Novotec integrado</a></li>
+                            <li><a class="dropdown-item" href="5_SJ">Serviços Jurídicos - Novotec integrado</a></li>
                         </ul>
                     </li>
 
@@ -63,11 +63,11 @@
                             AVALIAÇÕES
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="ADM.php">ADM</a></li>
-                            <li><a class="dropdown-item" href="INFO.php">INFO</a></li>
-                            <li><a class="dropdown-item" href="RH.php">RH</a></li>
-                            <li><a class="dropdown-item" href="MKT.php">MKT</a></li>
-                            <li><a class="dropdown-item" href="SJ.php">SJ</a></li>
+                            <li><a class="dropdown-item" href="2.1_ADM.php">ADM</a></li>
+                            <li><a class="dropdown-item" href="1.1_INFO.php">INFO</a></li>
+                            <li><a class="dropdown-item" href="4.1_RH.php">RH</a></li>
+                            <li><a class="dropdown-item" href="3.1_MKT.php">MKT</a></li>
+                            <li><a class="dropdown-item" href="5.1_SJ.php">SJ</a></li>
                         </ul>
                     </li>
                     

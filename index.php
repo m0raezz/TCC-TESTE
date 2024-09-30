@@ -50,11 +50,11 @@
                             CURSOS
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="./Pages/INFO.php">Administração - Novotec integrado</a></li>
-                            <li><a class="dropdown-item" href="#">Informática p/ Internet - Novotec integrado</a></li>
-                            <li><a class="dropdown-item" href="#">Recursos Humanos - Novotec integrado</a></li>
-                            <li><a class="dropdown-item" href="#">Marketing - Novotec integrado</a></li>
-                            <li><a class="dropdown-item" href="#">Serviços Jurídicos - Novotec integrado</a></li>
+                            <li><a class="dropdown-item" href="./Pages/2_ADM.php">Administração - Novotec integrado</a></li>
+                            <li><a class="dropdown-item" href="./Pages/1_INFO.php">Informática p/ Internet - Novotec integrado</a></li>
+                            <li><a class="dropdown-item" href="./Pages/4_RH.php">Recursos Humanos - Novotec integrado</a></li>
+                            <li><a class="dropdown-item" href="./Pages/3_MKT.php">Marketing - Novotec integrado</a></li>
+                            <li><a class="dropdown-item" href="./Pages/5_SJ.php">Serviços Jurídicos - Novotec integrado</a></li>
                         </ul>
                     </li>
                 </ul>
