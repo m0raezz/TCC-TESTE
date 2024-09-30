@@ -74,7 +74,7 @@ body {
     position: fixed;
     top: 80px; /* Para ajustar abaixo do navbar */
     left: 10px;
-    width: 200px;
+    width: 410px;
     height: 80%;
     overflow-y: auto; /* Permitir rolagem se a tabela for maior que a tela */
     border: 1px solid #ccc;

@@ -85,12 +85,13 @@
         require "conexao.php";
         $sql = "SELECT * FROM tbINFO ORDER BY nome";
         $resultado = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
+
         echo "<table>";
             echo "<tr>";
-                echo "<th>Nome</th>";
-                echo "<th>RM</th>";
-
+                echo "<th><h3>Nome</h3></th>";
+                echo "<th><h3>RM<h3></th>";
             echo "</tr>";
+
             while($linha=mysqli_fetch_array($resultado))
             {
                 //Nas linhas abaixo obtém cada coluna da tabela de clientes e armazena em cada variável
@@ -98,10 +99,15 @@
                 $rm = $linha["rm"];
                 //Exibe os dados
                 echo "<tr>";
-                    echo "<th>$nome</th>";
+                    echo "<th>$nome </th>";
                     echo "<th>$rm</th>";
                 echo "</tr>";
+
+                echo "<tr>";
+                    echo "<th><hr style='height:2px;border-width:0;color:gray;background-color:gray'></th>";
+                echo "</tr>";
             }
+        echo "</table>";
     ?>
         </table>
     </div>
