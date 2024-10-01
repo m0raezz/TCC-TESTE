@@ -103,7 +103,7 @@
     <div class="tabela-lateral">
         <?php
         require "conexao.php";
-        $sql = "SELECT * FROM tbINFO ORDER BY nome";
+        $sql = "SELECT * FROM tbRM ORDER BY nome";
         $resultado = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
 
         //Cabeçalho da tabela de nome e rm
