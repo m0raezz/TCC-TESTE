@@ -19,6 +19,19 @@
 </head>
     
 <body>
+        <!--V Libras-->
+        <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+        <div class="vw-plugin-top-wrapper"></div>
+    </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+
     <!-- Start NavBar-->
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container-fluid">
@@ -88,11 +101,16 @@
         $sql = "SELECT * FROM tbINFO ORDER BY nome";
         $resultado = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
 
-        echo "<table>";
-            echo "<tr>";
-                echo "<th><h3>Nome</h3></th>";
-                echo "<th><h3>RM<h3></th>";
-            echo "</tr>";
+        echo "<ul style='list-style: none;'>";
+            <ul class="list-group list-group-horizontal">
+                <li class="list-group-item">An item</li>
+                <li class="list-group-item">A second item</li>
+                <li class="list-group-item">A third item</li>
+            </ul>
+            echo "<li>";
+                echo "<h3>Nome</h3>";
+                echo "<h3>RM<h3>";
+            echo "</li>";
 
             while($linha=mysqli_fetch_array($resultado))
             {
@@ -100,16 +118,16 @@
                 $nome = $linha["nome"];
                 $rm = $linha["rm"];
                 //Exibe os dados
-                echo "<tr>";
-                    echo "<th>$nome </th>";
-                    echo "<th>$rm</th>";
-                echo "</tr>";
+                echo "<li>";
+                    echo "$nome";
+                    echo "$rm";
+                echo "</li>";
 
-                echo "<tr>";
+                /*echo "<tr>";
                     echo "<th><hr style='height:2px;border-width:0;color:gray;background-color:gray'></th>";
-                echo "</tr>";
+                echo "</tr>";*/
             }
-        echo "</table>";
+        echo "</ul>";
     ?>
         </table>
     </div>

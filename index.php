@@ -14,10 +14,23 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  
     <title>Teste</title>
 </head>
 <body>
+    <!--V Libras-->
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+        <div class="vw-plugin-top-wrapper"></div>
+    </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
 
     <!-- Start NavBar-->
     <nav class="navbar navbar-expand-lg fixed-top">
@@ -61,7 +74,7 @@
                 
                 <!-- Login navbar right -->
                 <a href="./Pages/login.php" class="ms-auto">
-                    <img src="images/login.png" width="45" height="48" alt="Logo">
+                    <img src="images/login.png" width="45" height="45" alt="Logo">
                 </a>
             </div>
         </div>

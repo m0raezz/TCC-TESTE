@@ -166,3 +166,9 @@ body {
 #sb {
     padding: 2rem 1rem; /* Adiciona espaçamento ao redor da seção */
 }
+
+.ul {
+    text-decoration: none;
+    list-style: none;
+    list-style-type: none;
+}
