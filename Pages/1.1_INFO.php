@@ -94,42 +94,33 @@
     <!-- End NavBar-->
 
     <!-- Tabela Lateral Esquerda -->
-    <div class="tabela-lateral">
-        <table class="table table-bordered">
+    <div class="tabela-lateral">   
         <?php
         require "conexao.php";
         $sql = "SELECT * FROM tbINFO ORDER BY nome";
         $resultado = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
+        echo "<ul style='list-style: none;' class='list-group'>";
 
-        echo "<ul style='list-style: none;'>";
-            <ul class="list-group list-group-horizontal">
-                <li class="list-group-item">An item</li>
-                <li class="list-group-item">A second item</li>
-                <li class="list-group-item">A third item</li>
-            </ul>
-            echo "<li>";
-                echo "<h3>Nome</h3>";
-                echo "<h3>RM<h3>";
-            echo "</li>";
-
+        // Cabeçalho da lista
+        echo "<li class='list-group-item' style='display: flex; justify-content: space-between; font-weight: bold;'>";
+        echo "<h3>Nome</h3>";
+        echo "<h3>RM</h3>";
+        echo "</li>";
+    
             while($linha=mysqli_fetch_array($resultado))
             {
                 //Nas linhas abaixo obtém cada coluna da tabela de clientes e armazena em cada variável
                 $nome = $linha["nome"];
                 $rm = $linha["rm"];
                 //Exibe os dados
-                echo "<li>";
-                    echo "$nome";
-                    echo "$rm";
+                echo "<li class='list-group-item' style='display: flex; justify-content: space-between;'>";
+                echo "<span>$nome</span>";
+                echo "<span>$rm</span>";
                 echo "</li>";
-
-                /*echo "<tr>";
-                    echo "<th><hr style='height:2px;border-width:0;color:gray;background-color:gray'></th>";
-                echo "</tr>";*/
             }
-        echo "</ul>";
-    ?>
-        </table>
+            echo "</ul>";
+            ?>
+        </div>
     </div>
 
     <!-- Start Containers -->
@@ -137,9 +128,9 @@
         <!-- Header de Avaliações -->
         <section class="avaliacoes-header">
             <span>Avaliações Pendentes - INFO</span>
-            <span class="badge badge-success">✓ Aprovar</span>
-            <span class="badge badge-danger">✖ Reprovado</span>
-            <span class="badge badge-primary">➤ Reencaminhar</span>
+            <span class="badge badge-success">✅ Aprovar</span>
+            <span class="badge badge-danger">❌ Reprovado</span>
+            <span class="badge badge-primary">↪️ Reencaminhar</span>
         </section>
 
         <!-- Cards de Avaliações -->

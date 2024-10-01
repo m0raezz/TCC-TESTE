@@ -29,7 +29,7 @@ body {
 }
 
 .badge-danger {
-    background-color: #ff3333;
+    background-color: #800000;
 }
 
 .badge-primary {
@@ -74,7 +74,7 @@ body {
 }
 
 .tabela-lateral {
-    position: fixed;
+    position:sticky;
     top: 80px; /* Mantém a tabela logo abaixo do navbar */
     left: 0; /* Fixa a tabela no canto esquerdo */
     width: 250px; /* Ajuste a largura para uma medida menor */
@@ -94,14 +94,15 @@ body {
 /* Media queries para responsividade */
 @media (max-width: 768px) {
     .tabela-lateral {
-        position: relative;
+        position: absolute;
         width: 100%; /* Tabela ocupa toda a largura em telas pequenas */
         height: auto; /* Altura automática */
         margin-bottom: 20px; /* Espaçamento entre a tabela e o conteúdo em telas pequenas */
+        overflow-y: auto;
     }
 
     .container-custom {
-        margin-left: 0;
+        margin-left: auto;
         max-width: 100%; /* O container ocupará toda a largura */
         padding: 10px;
     }
