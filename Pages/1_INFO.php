@@ -30,7 +30,19 @@
     </style>
 </head>
 <body>
-
+    <!--V Libras-->
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+        <div class="vw-plugin-top-wrapper"></div>
+    </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+    
     <!-- Start NavBar-->
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container-fluid">
@@ -130,8 +142,8 @@
     </div>
     <!-- End AV -->
 
-    <!-- End Footer -->
-    <footer class="bg-body-tertiary text-center text-lg-start">
+    <!-- Start Footer -->
+    <footer class="bg-body-tertiary text-center text-lg-start fixed-bottom">
         <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
             © 2024 Integra Etec:
             <a class="text-body" href="https://etecbebedouro.com.br">etecbebedouro.com.br</a>

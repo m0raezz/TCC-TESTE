@@ -19,6 +19,19 @@
 </head>
     
 <body>
+        <!--V Libras-->
+        <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+        <div class="vw-plugin-top-wrapper"></div>
+    </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+
     <!-- Start NavBar-->
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container-fluid">
@@ -81,23 +94,35 @@
     <!-- End NavBar-->
 
     <!-- Tabela Lateral Esquerda -->
+<<<<<<< HEAD
 
 
 
     <input type="checkbox" id="toggleSidebar">
     <label for="toggleSidebar" id="toggleSidebarLabel">Expandir</label>
     <div class="tabela-lateral">
+=======
+    <div class="tabela-lateral">   
+>>>>>>> 4463d4b34e690b25271f9ffe284d2eb696f8f78f
         <?php
         require "conexao.php";
         $sql = "SELECT * FROM tbINFO ORDER BY nome";
         $resultado = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
         echo "<ul style='list-style: none;' class='list-group'>";
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4463d4b34e690b25271f9ffe284d2eb696f8f78f
         // Cabeçalho da lista
         echo "<li class='list-group-item' style='display: flex; justify-content: space-between; font-weight: bold;'>";
         echo "<h3>Nome</h3>";
         echo "<h3>RM</h3>";
         echo "</li>";
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 4463d4b34e690b25271f9ffe284d2eb696f8f78f
             while($linha=mysqli_fetch_array($resultado))
             {
                 //Nas linhas abaixo obtém cada coluna da tabela de clientes e armazena em cada variável
@@ -106,7 +131,11 @@
                 //Exibe os dados
                 echo "<li class='list-group-item' style='display: flex; justify-content: space-between;'>";
                 echo "<span>$nome</span>";
+<<<<<<< HEAD
                 echo "<span><strong>$rm</strong></span>";
+=======
+                echo "<span>$rm</span>";
+>>>>>>> 4463d4b34e690b25271f9ffe284d2eb696f8f78f
                 echo "</li>";
             }
             echo "</ul>";
@@ -119,9 +148,9 @@
         <!-- Header de Avaliações -->
         <section class="avaliacoes-header">
             <span>Avaliações Pendentes - INFO</span>
-            <span class="badge badge-success">✓ Aprovar</span>
-            <span class="badge badge-danger">✖ Reprovado</span>
-            <span class="badge badge-primary">➤ Reencaminhar</span>
+            <span class="badge badge-success">✅ Aprovar</span>
+            <span class="badge badge-danger">❌ Reprovado</span>
+            <span class="badge badge-primary">↪️ Reencaminhar</span>
         </section>
 
         <!-- Cards de Avaliações -->

@@ -29,7 +29,7 @@ body {
 }
 
 .badge-danger {
-    background-color: #ff3333;
+    background-color: #800000;
 }
 
 .badge-primary {
@@ -95,6 +95,7 @@ body {
 
 /* Estilo inicial da barra lateral */
 .tabela-lateral {
+<<<<<<< HEAD
     position: fixed;
     margin-top: 25px;
     left: -500px; /* Fora da tela inicialmente */
@@ -102,6 +103,14 @@ body {
     height: 100%;
     max-height: 800px; /* Definindo uma altura máxima */
     background-color: #f8f9fa;
+=======
+    position:sticky;
+    top: 80px; /* Mantém a tabela logo abaixo do navbar */
+    left: 0; /* Fixa a tabela no canto esquerdo */
+    width: 250px; /* Ajuste a largura para uma medida menor */
+    height: 80%; /* Limita a altura */
+    overflow-y: auto; /* Permite rolagem se o conteúdo exceder a altura */
+>>>>>>> 4463d4b34e690b25271f9ffe284d2eb696f8f78f
     border: 1px solid #ccc;
     z-index: 999;
     transition: left 0.3s ease-in-out;
@@ -126,14 +135,15 @@ body {
 /* Media queries para responsividade */
 @media (max-width: 768px) {
     .tabela-lateral {
-        position: relative;
+        position: absolute;
         width: 100%; /* Tabela ocupa toda a largura em telas pequenas */
         height: auto; /* Altura automática */
         margin-bottom: 20px; /* Espaçamento entre a tabela e o conteúdo em telas pequenas */
+        overflow-y: auto;
     }
 
     .container-custom {
-        margin-left: 0;
+        margin-left: auto;
         max-width: 100%; /* O container ocupará toda a largura */
         padding: 10px;
     }
@@ -162,3 +172,16 @@ body {
 
 
 
+<<<<<<< HEAD
+=======
+/* Estiliza o container da seção SOBRE */
+#sb {
+    padding: 2rem 1rem; /* Adiciona espaçamento ao redor da seção */
+}
+
+.ul {
+    text-decoration: none;
+    list-style: none;
+    list-style-type: none;
+}
+>>>>>>> 4463d4b34e690b25271f9ffe284d2eb696f8f78f
