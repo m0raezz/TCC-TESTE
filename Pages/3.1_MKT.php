@@ -99,16 +99,18 @@
 
     <input type="checkbox" id="toggleSidebar">
     <label for="toggleSidebar" id="toggleSidebarLabel">Expandir</label>
+    <!-- Tabela Lateral Esquerda -->
     <div class="tabela-lateral">
         <?php
         require "conexao.php";
         $sql = "SELECT * FROM tbINFO ORDER BY nome";
         $resultado = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
-        echo "<ul style='list-style: none;' class='list-group'>";
-        // Cabeçalho da lista
-        echo "<li class='list-group-item' style='display: flex; justify-content: space-between; font-weight: bold;'>";
-        echo "<h3>Nome</h3>";
-        echo "<h3>RM</h3>";
+
+        //Cabeçalho da tabela de nome e rm
+        echo "<ul class='list-group'>";
+        echo "<li class='list-group-item' style='display: flex; justify-content: space-between;'>";
+            echo "<span><strong><h3>Nome</h3></strong></span>";
+            echo "<span><strong><h3>RM</h3></strong></span>";
         echo "</li>";
 
             while($linha=mysqli_fetch_array($resultado))
@@ -118,10 +120,11 @@
                 $rm = $linha["rm"];
                 //Exibe os dados
                 echo "<li class='list-group-item' style='display: flex; justify-content: space-between;'>";
-                echo "<span>$nome</span>";
-                echo "<span><strong>$rm</strong></span>";
+                echo "<span class='nome'>$nome</span>";
+                echo "<span class='rm'><strong>$rm</strong></span>";
                 echo "</li>";
             }
+
             echo "</ul>";
             ?>
         </div>
@@ -132,9 +135,9 @@
         <!-- Header de Avaliações -->
         <section class="avaliacoes-header">
             <span>Avaliações Pendentes - MKT</span>
-            <span class="badge badge-success">✓ Aprovar</span>
-            <span class="badge badge-danger">✖ Reprovado</span>
-            <span class="badge badge-primary">➤ Reencaminhar</span>
+            <span class="badge badge-success">✅ Aprovar</span>
+            <span class="badge badge-danger">❌ Reprovado</span>
+            <span class="badge badge-primary">↪️ Reencaminhar</span>
         </section>
 
         <!-- Cards de Avaliações -->

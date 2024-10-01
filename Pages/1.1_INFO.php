@@ -94,35 +94,25 @@
     <!-- End NavBar-->
 
     <!-- Tabela Lateral Esquerda -->
-<<<<<<< HEAD
 
 
 
     <input type="checkbox" id="toggleSidebar">
     <label for="toggleSidebar" id="toggleSidebarLabel">Expandir</label>
+    <!-- Tabela Lateral Esquerda -->
     <div class="tabela-lateral">
-=======
-    <div class="tabela-lateral">   
->>>>>>> 4463d4b34e690b25271f9ffe284d2eb696f8f78f
         <?php
         require "conexao.php";
         $sql = "SELECT * FROM tbINFO ORDER BY nome";
         $resultado = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
-        echo "<ul style='list-style: none;' class='list-group'>";
-<<<<<<< HEAD
-=======
 
->>>>>>> 4463d4b34e690b25271f9ffe284d2eb696f8f78f
-        // Cabeçalho da lista
-        echo "<li class='list-group-item' style='display: flex; justify-content: space-between; font-weight: bold;'>";
-        echo "<h3>Nome</h3>";
-        echo "<h3>RM</h3>";
+        //Cabeçalho da tabela de nome e rm
+        echo "<ul class='list-group'>";
+        echo "<li class='list-group-item' style='display: flex; justify-content: space-between;'>";
+            echo "<span><strong><h3>Nome</h3></strong></span>";
+            echo "<span><strong><h3>RM</h3></strong></span>";
         echo "</li>";
-<<<<<<< HEAD
 
-=======
-    
->>>>>>> 4463d4b34e690b25271f9ffe284d2eb696f8f78f
             while($linha=mysqli_fetch_array($resultado))
             {
                 //Nas linhas abaixo obtém cada coluna da tabela de clientes e armazena em cada variável
@@ -130,14 +120,11 @@
                 $rm = $linha["rm"];
                 //Exibe os dados
                 echo "<li class='list-group-item' style='display: flex; justify-content: space-between;'>";
-                echo "<span>$nome</span>";
-<<<<<<< HEAD
-                echo "<span><strong>$rm</strong></span>";
-=======
-                echo "<span>$rm</span>";
->>>>>>> 4463d4b34e690b25271f9ffe284d2eb696f8f78f
+                echo "<span class='nome'>$nome</span>";
+                echo "<span class='rm'><strong>$rm</strong></span>";
                 echo "</li>";
             }
+
             echo "</ul>";
             ?>
         </div>
