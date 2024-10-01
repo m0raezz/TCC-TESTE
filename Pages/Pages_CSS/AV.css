@@ -73,16 +73,48 @@ body {
     border-radius: 0% 0% 10px 10px;
 }
 
+/* TABELA LATERAL*/
+/* Esconder o checkbox */
+#toggleSidebar {
+    display: none;
+}
+
+/* Botão de expansão no canto inferior direito */
+#toggleSidebarLabel {
+    position: fixed;
+    bottom: 20px; /* Distância do botão em relação à parte inferior da tela */
+    right: 20px; /* Distância do botão em relação à parte direita da tela */
+    background-color: #83082A;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+
+    z-index: 999;
+}
+
+/* Estilo inicial da barra lateral */
 .tabela-lateral {
     position: fixed;
-    top: 80px; /* Mantém a tabela logo abaixo do navbar */
-    left: 0; /* Fixa a tabela no canto esquerdo */
-    width: 250px; /* Ajuste a largura para uma medida menor */
-    height: 80%; /* Limita a altura */
-    overflow-y: auto; /* Permite rolagem se o conteúdo exceder a altura */
+    margin-top: 25px;
+    left: -500px; /* Fora da tela inicialmente */
+    width: 280px;
+    height: 100%;
+    max-height: 800px; /* Definindo uma altura máxima */
+    background-color: #f8f9fa;
     border: 1px solid #ccc;
-    z-index: 1; /* Garante que a tabela fique abaixo dos elementos com prioridade visual */
+    z-index: 999;
+    transition: left 0.3s ease-in-out;
+    overflow-y: auto; /* Adiciona uma barra de rolagem vertical se necessário */
+    
 }
+
+/* Mostrar barra lateral quando o checkbox está marcado */
+#toggleSidebar:checked + label + .tabela-lateral {
+    left: 0; /* Move a barra lateral para dentro da tela */
+}
+
+/*FIM TABELA LATERAL*/
 
 .container-custom {
     margin-left: 270px; /* Deixa o espaço da tabela lateral (250px + 20px de margem) e posiciona o conteúdo à direita */
@@ -125,44 +157,8 @@ body {
     width: 100%; /* Largura total */
 }
 
-/* Container para imagens com largura máxima */
-.container1 {
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-    max-width: 100%;
-}
 
-/* Estilo para imagens responsivas */
-.imagem1 {
-    width: 100%;
-    height: auto; /* Mantém a proporção */
-}
 
-/* Ajustes dos Cards */
-.card-img-top {
-    width: 100%; /* Garante que a imagem do card ocupe toda a largura */
-    height: auto; /* Mantém a proporção da imagem */
-}
 
-/* Estilo para o título da equipe */
-.equipe-titulo {
-    font-size: 3rem; /* Tamanho do texto */
-    font-weight: bold; /* Negrito */
-    color: #83082A; /* Cor do texto */
-    margin-bottom: 1rem; /* Espaço abaixo do título */
-}
 
-/* Estilo para o texto justificado */
-.textpsb {
-    max-width: 100%;
-    margin: 0 auto;
-    text-align: justify; /* Justifica o texto */
-    font-size: 1.25rem; /* Tamanho da fonte */
-    line-height: 1.6; /* Altura da linha */
-}
 
-/* Estiliza o container da seção SOBRE */
-#sb {
-    padding: 2rem 1rem; /* Adiciona espaçamento ao redor da seção */
-}

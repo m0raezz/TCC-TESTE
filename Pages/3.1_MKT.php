@@ -16,8 +16,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
-
 </head>
+    
 <body>
     <!-- Start NavBar-->
     <nav class="navbar navbar-expand-lg fixed-top">
@@ -37,24 +37,24 @@
             <div class="text-light collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="text-light nav-link active me-2" aria-current="page" href="V_ADM.php">Inicio</a>
+                        <a class="text-light nav-link active me-2" aria-current="page" href="../index.php">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="text-light nav-link me-2" href="V_ADM.php">Equipe</a>
+                        <a class="text-light nav-link me-2" href="../index.php">Equipe</a>
                     </li>
                     <li class="nav-item">
-                        <a class="text-light nav-link me-2" href="V_ADM.php">Sobre</a>
+                        <a class="text-light nav-link me-2" href="../index.php">Sobre</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="text-light nav-link dropdown-toggle me-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             CURSOS
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="1_ADM.php">Administração - Novotec integrado</a></li>
+                            <li><a class="dropdown-item" href="2_ADM.php">Administração - Novotec integrado</a></li>
                             <li><a class="dropdown-item" href="1_INFO.php">Informática p/ Internet - Novotec integrado</a></li>
-                            <li><a class="dropdown-item" href="1_RH.php">Recursos Humanos - Novotec integrado</a></li>
-                            <li><a class="dropdown-item" href="1_MKT.php">Marketing - Novotec integrado</a></li>
-                            <li><a class="dropdown-item" href="1_SJ.php">Serviços Jurídicos - Novotec integrado</a></li>
+                            <li><a class="dropdown-item" href="4_RH.php">Recursos Humanos - Novotec integrado</a></li>
+                            <li><a class="dropdown-item" href="3_MKT.php">Marketing - Novotec integrado</a></li>
+                            <li><a class="dropdown-item" href="5_SJ.php">Serviços Jurídicos - Novotec integrado</a></li>
                         </ul>
                     </li>
 
@@ -81,18 +81,22 @@
     <!-- End NavBar-->
 
     <!-- Tabela Lateral Esquerda -->
+
+
+
+    <input type="checkbox" id="toggleSidebar">
+    <label for="toggleSidebar" id="toggleSidebarLabel">Expandir</label>
     <div class="tabela-lateral">
-    <table class="table table-bordered">
         <?php
         require "conexao.php";
         $sql = "SELECT * FROM tbINFO ORDER BY nome";
         $resultado = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
-
-        echo "<table>";
-            echo "<tr>";
-                echo "<th><h3>Nome</h3></th>";
-                echo "<th><h3>RM<h3></th>";
-            echo "</tr>";
+        echo "<ul style='list-style: none;' class='list-group'>";
+        // Cabeçalho da lista
+        echo "<li class='list-group-item' style='display: flex; justify-content: space-between; font-weight: bold;'>";
+        echo "<h3>Nome</h3>";
+        echo "<h3>RM</h3>";
+        echo "</li>";
 
             while($linha=mysqli_fetch_array($resultado))
             {
@@ -100,33 +104,28 @@
                 $nome = $linha["nome"];
                 $rm = $linha["rm"];
                 //Exibe os dados
-                echo "<tr>";
-                    echo "<th>$nome </th>";
-                    echo "<th>$rm</th>";
-                echo "</tr>";
-
-                echo "<tr>";
-                    echo "<th><hr style='height:2px;border-width:0;color:gray;background-color:gray'></th>";
-                echo "</tr>";
+                echo "<li class='list-group-item' style='display: flex; justify-content: space-between;'>";
+                echo "<span>$nome</span>";
+                echo "<span><strong>$rm</strong></span>";
+                echo "</li>";
             }
-        echo "</table>";
-    ?>
-        </table>
+            echo "</ul>";
+            ?>
+        </div>
     </div>
 
     <!-- Start Containers -->
-    <div class="container mt-5 container-custom">
+    <div class="container mt-5 container-custom text-right">
         <!-- Header de Avaliações -->
         <section class="avaliacoes-header">
             <span>Avaliações Pendentes - MKT</span>
-            <span class="badge badge-success">✔ Aprovar</span>
+            <span class="badge badge-success">✓ Aprovar</span>
             <span class="badge badge-danger">✖ Reprovado</span>
             <span class="badge badge-primary">➤ Reencaminhar</span>
         </section>
 
         <!-- Cards de Avaliações -->
         <section class="row">
-            <!-- Primeira Coluna -->
             <!-- Primeira Coluna -->
             <div class="col-md-4 mb-4">
                 <div class="card text-center p-3">
@@ -236,12 +235,13 @@
                     </div>
                 </div>
             </div>
+
             
 
 
     
         </section>
-    </div>
+    
 
 </body>
 </html>

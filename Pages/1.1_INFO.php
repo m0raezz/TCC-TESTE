@@ -81,18 +81,22 @@
     <!-- End NavBar-->
 
     <!-- Tabela Lateral Esquerda -->
+
+
+
+    <input type="checkbox" id="toggleSidebar">
+    <label for="toggleSidebar" id="toggleSidebarLabel">Expandir</label>
     <div class="tabela-lateral">
-        <table class="table table-bordered">
         <?php
         require "conexao.php";
         $sql = "SELECT * FROM tbINFO ORDER BY nome";
         $resultado = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
-
-        echo "<table>";
-            echo "<tr>";
-                echo "<th><h3>Nome</h3></th>";
-                echo "<th><h3>RM<h3></th>";
-            echo "</tr>";
+        echo "<ul style='list-style: none;' class='list-group'>";
+        // Cabeçalho da lista
+        echo "<li class='list-group-item' style='display: flex; justify-content: space-between; font-weight: bold;'>";
+        echo "<h3>Nome</h3>";
+        echo "<h3>RM</h3>";
+        echo "</li>";
 
             while($linha=mysqli_fetch_array($resultado))
             {
@@ -100,18 +104,14 @@
                 $nome = $linha["nome"];
                 $rm = $linha["rm"];
                 //Exibe os dados
-                echo "<tr>";
-                    echo "<th>$nome </th>";
-                    echo "<th>$rm</th>";
-                echo "</tr>";
-
-                echo "<tr>";
-                    echo "<th><hr style='height:2px;border-width:0;color:gray;background-color:gray'></th>";
-                echo "</tr>";
+                echo "<li class='list-group-item' style='display: flex; justify-content: space-between;'>";
+                echo "<span>$nome</span>";
+                echo "<span><strong>$rm</strong></span>";
+                echo "</li>";
             }
-        echo "</table>";
-    ?>
-        </table>
+            echo "</ul>";
+            ?>
+        </div>
     </div>
 
     <!-- Start Containers -->
@@ -241,7 +241,7 @@
 
     
         </section>
-    </div>
+    
 
 </body>
 </html>
