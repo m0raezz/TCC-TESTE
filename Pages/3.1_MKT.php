@@ -83,7 +83,9 @@
                             <li><a class="dropdown-item" href="5.1_SJ.php">SJ</a></li>
                         </ul>
                     </li>
-                    
+                    <li class="nav-item">
+                        <a class="text-light nav-link me-2" href="ADM_VET.php">VETERANOS</a>
+                    </li>
                 </ul>
                 
                 <!-- Login navbar right -->

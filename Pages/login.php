@@ -38,7 +38,6 @@
         new window.VLibras.Widget('https://vlibras.gov.br/app');
     </script>
 
-   <!------ Include the above in your HEAD tag ---------->
 
    <div class="sidenav">
       <div class="login-main-text">

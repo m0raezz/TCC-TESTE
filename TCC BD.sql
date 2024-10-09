@@ -27,9 +27,9 @@ values ("Renan", 31775, "muito bom","INFO");
 
 create table tbRM (
     nome VARCHAR(255) NOT NULL,
-    rm INT(5) primary key,
+    rm INT(5),
     curso VARCHAR(4) NOT NULL,
-
+	id int(5) auto_increment primary key,
 CONSTRAINT curso_check CHECK (curso IN ('INFO', 'ADM', 'RH', 'JUR', 'MKT'))
 );
 
@@ -71,6 +71,6 @@ VALUES
 ("PEDRO HENRIQUE ALVES DIAS", 31886, "INFO"),
 ("PEDRO HENRIQUE DEZEM", 31763, "INFO"),
 ("RAFAEL DO NASCIMENTO", 31761, "INFO"),
-("RENAN BRITO DE MORAES", 31775, "INFO"),
+("RENAN BRITO DE MORAES", 31775, "ADM"),
 ("RIAD ABBES BERNARDE", 31764, "INFO"),
 ("VINICIUS SILVA GUEDES", 32001, "INFO");

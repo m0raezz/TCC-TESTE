@@ -17,25 +17,15 @@
 
     <title>Teste</title>
 
-    <style>
-        /* Estilos para o rodapé fixo */
-        body {
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-        footer {
-            margin-top: auto;
-        }
-    </style>
+
 </head>
 <body>
     <!--V Libras-->
     <div vw class="enabled">
         <div vw-access-button class="active"></div>
         <div vw-plugin-wrapper>
-        <div class="vw-plugin-top-wrapper"></div>
-    </div>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
     </div>
     <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
     
@@ -61,13 +51,13 @@
             <div class="text-light collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="text-light nav-link active me-2" aria-current="page" href="#im">Inicio</a>
+                        <a class="text-light nav-link active me-2" aria-current="page" href="../index.php #im">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="text-light nav-link me-2" href="#eq">Equipe</a>
+                        <a class="text-light nav-link me-2" href="../index.php #eq">Equipe</a>
                     </li>
                     <li class="nav-item">
-                        <a class="text-light nav-link me-2" href="#sb">Sobre</a>
+                        <a class="text-light nav-link me-2" href="../index.php #sb">Sobre</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="text-light nav-link dropdown-toggle me-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -84,7 +74,7 @@
                 </ul>
                 
                 <!-- Login navbar right -->
-                <a href="./Pages/login.php" class="ms-auto">
+                <a href="login.php" class="ms-auto">
                     <img src="../images/login.png" width="45" height="48" alt="Logo">
                 </a>
             </div>
@@ -93,6 +83,65 @@
     <!-- End NavBar-->
 
     <!-- Start Form -->
+    <?php
+    require "conexao.php";
+
+    $mensagem = ""; // Variável para armazenar a mensagem de feedback
+
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        // Captura os dados do formulário
+        $nome = $_POST['nome'];
+        $rm = $_POST['rm'];
+        $curso = $_POST['curso'];
+        $observacoes = $_POST['observacoes'];
+
+        // Prepara a consulta SQL para buscar os RMs válidos para o curso selecionado
+        $sql = "SELECT rm FROM tbRM WHERE curso = ?";
+        $stmt = mysqli_prepare($conexao, $sql);
+        mysqli_stmt_bind_param($stmt, "s", $curso);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
+
+        // Verifica se o RM fornecido está na lista de RMs válidos
+        $rms_validos = [];
+        while ($row = mysqli_fetch_assoc($result)) {
+            $rms_validos[] = $row['rm'];
+        }
+
+        // Verifica se há resultados retornados
+        if (empty($rms_validos)) {
+            $mensagem = "Nenhum RM válido encontrado para o curso selecionado!";
+        } else {
+            // Verifica se o RM já existe na tabela tbcomentarios
+            $sql_comentario = "SELECT rmVeterano FROM tbcomentarios WHERE rmVeterano = ?";
+            $stmt_comentario = mysqli_prepare($conexao, $sql_comentario);
+            mysqli_stmt_bind_param($stmt_comentario, "s", $rm);
+            mysqli_stmt_execute($stmt_comentario);
+            $result_comentario = mysqli_stmt_get_result($stmt_comentario);
+
+            if (mysqli_num_rows($result_comentario) > 0) {
+                $mensagem = "Erro: O RM informado já possui uma avaliação! Caso não tenha sido você, nôs contacte: <bold>suporte.integra@gmail.com";
+            } else {
+                // Se o RM não existe na tabela de comentários, verifica se é válido
+                if (in_array($rm, $rms_validos)) {
+                    // Processar o formulário se o RM for válido
+                    $mensagem = "Formulário enviado com sucesso!";
+                    // Aqui você pode prosseguir com o processamento dos dados, como inserção no banco
+                } else {
+                    // Retorna uma mensagem de erro caso o RM seja inválido
+                    $mensagem = "Erro: O RM informado não é válido para o curso selecionado!";
+                }
+            }
+
+            // Fechar a consulta de comentários
+            mysqli_stmt_close($stmt_comentario);
+        }
+
+        // Fechar a consulta de RMs válidos
+        mysqli_stmt_close($stmt);
+    }
+    ?>
+
     <section name="forms" class="mt-5 pt-5 flex-grow-1">
         <div class="container">
             <h2 class="text-center mb-4">Formulário de Avaliação</h2>
@@ -103,14 +152,14 @@
                 </div>
                 <div class="mb-3">
                     <label for="rm" class="form-label">RM</label>
-                    <input type="number" placeholder="12345" class="form-control" id="rm" name="rm" max="5" required>
+                    <input type="number" placeholder="12345" class="form-control" id="rm" name="rm" required>
                 </div>
                 <div class="mb-3">
                     <label for="curso" class="form-label">Curso</label>
                     <select class="form-select" id="curso" name="curso" required>
                         <option value="" disabled selected>Selecione um curso</option>
                         <option value="INFO">INFO</option>
-                        <option value="AMD">AMD</option>
+                        <option value="ADM">ADM</option>
                         <option value="RH">RH</option>
                         <option value="SJ">SJ</option>
                         <option value="MKT">MKT</option>
@@ -127,10 +176,35 @@
             </form>
         </div>
     </section>
-    <!-- End Form -->
+
+    <!-- Modal para exibir mensagem -->
+    <div class="modal fade" id="mensagemModal" tabindex="-1" aria-labelledby="mensagemModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="mensagemModalLabel">Mensagem</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <?php if (!empty($mensagem)) echo $mensagem; ?>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mostra o modal se houver uma mensagem
+        <?php if (!empty($mensagem)) { ?>
+            var myModal = new bootstrap.Modal(document.getElementById('mensagemModal'));
+            myModal.show();
+        <?php } ?>
+    </script>
 
     <!-- End Footer -->
-    <footer class="bg-body-tertiary text-center text-lg-start">
+    <footer class="bg-body-tertiary text-center text-lg-start fixed-bottom">
         <!-- Copyright -->
         <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
             © 2024 Integra Etec:
