@@ -82,10 +82,13 @@
     <div class="container-fluid" style="margin-top: 80px;">
 
         <div class="row full-height">
-            <div class="col-md-6 d-flex flex-column justify-content-center align-items-center" style="background-color: #f8f9fa;" name="texto">
+            <div class="col-md-6 d-flex flex-column justify-content-center align-items-center" style="background-color: #f8f9fa;" name="Esquerda">
                 <h2 class="text-center">Curso RH</h2>
                 <p>Texto sobre o curso.</p>
+                <a href="form.php" class="y btn btn-lg btn-outline-danger"style="text-decoration: none;">Avalie o curso</a>
             </div>
+
+
             <div class="col-md-6 d-flex flex-column justify-content-center align-items-center" style="background-color: #e9ecef;" name="Direita">
                 <h2 class="text-center">Avaliações</h2>
                 <p>Avaliações.</p>
