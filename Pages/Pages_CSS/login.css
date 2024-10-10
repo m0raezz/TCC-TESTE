@@ -1,0 +1,80 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    font-family: "Poppins", sans-serif; /* Define a fonte Poppins como a fonte principal */
+    color: #FFF;
+    font-weight: bold;
+    display: flex;
+    overflow: hidden; /* Garante que não haja barras de rolagem indesejadas */
+}
+
+.sidenav {
+    height: 100vh; /* Usa a altura total da viewport */
+    background-color: #83082A;
+    overflow-x: hidden;
+    padding-top: 10%;
+    width: 40%; /* Ajusta a largura da sidebar */
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.main {
+    margin-left: 40%; /* Faz com que a área principal comece após a sidebar */
+    padding: 50px 20px; /* Adiciona padding para mover o conteúdo para baixo */
+    width: 60%; /* Ajusta a largura da área principal */
+    height: 100vh; /* Usa a altura total da viewport */
+    box-sizing: border-box; /* Inclui padding e bordas no cálculo da largura */
+}
+
+@media screen and (max-width: 768px) {
+    .sidenav {
+        width: 100%; /* Sidebar ocupa toda a largura em telas menores */
+        height: auto; /* Ajusta a altura da sidebar */
+        position: relative; /* Remove a posição fixa */
+        padding-top: 5%; /* Ajusta o padding */
+    }
+
+    .main {
+        margin-left: 0; /* Remove o margin-left em telas menores */
+        width: 100%; /* A área principal ocupa toda a largura */
+        height: auto; /* Ajusta a altura da área principal */
+    }
+}
+
+.login-form {
+    margin-top: 40%; /* Ajuste o valor conforme necessário */
+    padding: 20px; /* Ajusta o padding do formulário */
+}
+
+.login-main-text {
+    margin-top: 10%;
+    padding: 60px;
+    color: #fff;
+    font-weight: bold;
+    font-family: "Poppins", sans-serif; /* Usa a fonte Poppins aqui também */
+}
+
+.login-main-text h2 {
+    font-weight: 300;
+}
+
+.btn {
+    background-color: #313131 !important;
+    font-family: "Poppins", sans-serif; /* Usa a fonte Poppins nos botões */
+}
+
+.btn:hover {
+    background-color: #83082A !important;
+}
+
+.form-group {
+    font-size: xx-large;
+    font-weight: bold;
+    font-family: "Poppins", sans-serif; /* Usa a fonte Poppins nos campos do formulário */
+}

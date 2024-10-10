@@ -1,0 +1,179 @@
+body {
+    background-color: #6e6e6e; /* Cor de fundo semelhante ao fundo da imagem */
+    font-family: 'Poppins', sans-serif;
+}
+
+.avaliacoes-header {
+    background-color: #b0b0b0; /* Cor cinza claro */
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.avaliacoes-header span {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.badge {
+    font-size: 1.1rem;
+    margin-left: 10px;
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+
+.badge-success {
+    background-color: #00ff80;
+    
+}
+
+.badge-danger {
+    background-color: #ff3333;
+}
+
+.badge-primary {
+    background-color: #3366ff;
+}
+
+.card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Garante que os cards ocupem toda a largura */
+}
+
+.user-icon {
+    width: 40px;
+    height: 40px;
+    background-color: black;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.stars {
+    font-size: 1.3rem;
+    color: black; /* Estrelas amarelas */
+}
+
+.btn-animated {
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.btn-animated:hover {
+    transform: scale(1.2);
+}
+
+.container {
+    background-color: #83082A;
+    padding: 30px;
+    border-radius: 0% 0% 10px 10px;
+}
+
+/* TABELA LATERAL*/
+/* Esconder o checkbox */
+#toggleSidebar {
+    display: none;
+}
+
+/* Botão de expansão no canto inferior direito */
+#toggleSidebarLabel {
+    position: fixed;
+    bottom: 20px; /* Distância do botão em relação à parte inferior da tela */
+    right: 20px; /* Distância do botão em relação à parte direita da tela */
+    background-color: #83082A;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 999;
+}
+
+/* Estilo inicial da barra lateral */
+
+.list-group-item {
+    display: flex; 
+    justify-content: space-between;
+}
+
+.nome {
+    margin-right: 20px;
+    white-space: normal;
+}
+
+.rm {
+    margin-left: 20px;
+}
+
+
+.tabela-lateral {
+    position: fixed;
+    margin-top: 25px;
+    left: -500px; /* Fora da tela inicialmente */
+    width: 280px;
+    height: 100%;
+    max-height: 820px; /* Definindo uma altura máxima */
+    background-color: #f8f9fa;
+    border: 1px solid #ccc;
+    z-index: 999;
+    transition: left 0.3s ease-in-out;
+    overflow-y: auto; /* Adiciona uma barra de rolagem vertical se necessário */
+    
+}
+
+/* Mostrar barra lateral quando o checkbox está marcado */
+#toggleSidebar:checked + label + .tabela-lateral {
+    left: 0; /* Move a barra lateral para dentro da tela */
+}
+
+/*FIM TABELA LATERAL*/
+
+.container-custom {
+    margin-left: 270px; /* Deixa o espaço da tabela lateral (250px + 20px de margem) e posiciona o conteúdo à direita */
+    padding: 20px;
+    max-width: calc(100% - 270px); /* Garante que o container ocupe o espaço à direita da tabela lateral */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Adiciona uma leve sombra ao container */
+}
+
+/* Media queries para responsividade */
+@media (max-width: 768px) {
+    .tabela-lateral {
+        position: relative;
+        width: 100%; /* Tabela ocupa toda a largura em telas pequenas */
+        height: auto; /* Altura automática */
+        margin-bottom: 20px; /* Espaçamento entre a tabela e o conteúdo em telas pequenas */
+    }
+
+    .container-custom {
+        margin-left: 0;
+        max-width: 100%; /* O container ocupará toda a largura */
+        padding: 10px;
+    }
+
+    .card {
+        margin-bottom: 15px; /* Ajusta o espaço entre os cards em telas menores */
+    }
+}
+
+/* Estilo do menu suspenso no navbar */
+.dropdown-menu .dropdown-item {
+    background-color: #ffffff; /* Cor de fundo dos itens do menu */
+}
+
+/* Estilo da navbar */
+.navbar {
+    background-color: #83082A; /* Cor de fundo */
+    color: aliceblue; /* Cor do texto */
+    top: 0;
+    left: 0;
+    width: 100%; /* Largura total */
+}
+
+
+
+
+
+
