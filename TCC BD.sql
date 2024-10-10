@@ -1,7 +1,7 @@
 CREATE DATABASE TESTE1;
 
 use TESTE1;
-create table tbADM(
+cReaTe tAbLe tbADM(
 
 CodigoADM Varchar(40) not null,
 SenhaADM Varchar(40) not null
@@ -18,6 +18,7 @@ nomeVeterano varchar(90) not null,
 rmVeterano int(5) not null primary key,
 texto text(2000) not null,
 curso VARCHAR(4) NOT NULL,
+condicao char(1) default ("I"),
 
 CONSTRAINT curso_check CHECK (curso IN ('INFO', 'ADM', 'RH', 'JUR', 'MKT'))	
 );
@@ -25,11 +26,14 @@ CONSTRAINT curso_check CHECK (curso IN ('INFO', 'ADM', 'RH', 'JUR', 'MKT'))
 insert into tbcomentarios(nomeVeterano, rmVeterano, texto, curso)
 values ("Renan", 31775, "muito bom","INFO");
 
+
+
+
 create table tbRM (
     nome VARCHAR(255) NOT NULL,
-    rm INT(5),
+    rm INT(5) primary key,
     curso VARCHAR(4) NOT NULL,
-	id int(5) auto_increment primary key,
+
 CONSTRAINT curso_check CHECK (curso IN ('INFO', 'ADM', 'RH', 'JUR', 'MKT'))
 );
 
@@ -37,7 +41,7 @@ INSERT INTO tbRM (nome, rm, curso)
 VALUES 
 ("ADRYELLY DE OLIVEIRA", 31767, "INFO"),
 ("ANA CLARA MAXIMINO", 31957, "INFO"),
-("ARTHUT BARBEIRO AGUIAR", 31782, "INFO"),
+("ARTHUR BARBEIRO AGUIAR", 31782, "INFO"),
 ("BRUNO MENDES DA SILVA", 31777, "INFO"),
 ("BRYAN BELARMINO MOREIRA", 31766, "INFO"),
 ("CARLOS ALEXANDRE DA SILVA GOMES", 31765, "INFO"),
