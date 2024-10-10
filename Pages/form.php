@@ -82,65 +82,80 @@
     </nav>
     <!-- End NavBar-->
 
-    <!-- Start Form -->
     <?php
-    require "conexao.php";
+require "conexao.php";
 
-    $mensagem = ""; // Variável para armazenar a mensagem de feedback
+$mensagem = ""; // Variável para armazenar a mensagem de feedback
 
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        // Captura os dados do formulário
-        $nome = $_POST['nome'];
-        $rm = $_POST['rm'];
-        $curso = $_POST['curso'];
-        $observacoes = $_POST['observacoes'];
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // Captura os dados do formulário
+    $nome = $_POST['nome'];
+    $rm = $_POST['rm'];
+    $curso = $_POST['curso'];
+    $observacoes = $_POST['observacoes'];
 
-        // Prepara a consulta SQL para buscar os RMs válidos para o curso selecionado
-        $sql = "SELECT rm FROM tbRM WHERE curso = ?";
-        $stmt = mysqli_prepare($conexao, $sql);
-        mysqli_stmt_bind_param($stmt, "s", $curso);
-        mysqli_stmt_execute($stmt);
-        $result = mysqli_stmt_get_result($stmt);
+    // Prepara a consulta SQL para buscar os RMs válidos para o curso selecionado
+    $sql = "SELECT rm FROM tbRM WHERE curso = ?";
+    $stmt = mysqli_prepare($conexao, $sql);
+    mysqli_stmt_bind_param($stmt, "s", $curso);
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
 
-        // Verifica se o RM fornecido está na lista de RMs válidos
-        $rms_validos = [];
-        while ($row = mysqli_fetch_assoc($result)) {
-            $rms_validos[] = $row['rm'];
-        }
-
-        // Verifica se há resultados retornados
-        if (empty($rms_validos)) {
-            $mensagem = "Nenhum RM válido encontrado para o curso selecionado!";
-        } else {
-            // Verifica se o RM já existe na tabela tbcomentarios
-            $sql_comentario = "SELECT rmVeterano FROM tbcomentarios WHERE rmVeterano = ?";
-            $stmt_comentario = mysqli_prepare($conexao, $sql_comentario);
-            mysqli_stmt_bind_param($stmt_comentario, "s", $rm);
-            mysqli_stmt_execute($stmt_comentario);
-            $result_comentario = mysqli_stmt_get_result($stmt_comentario);
-
-            if (mysqli_num_rows($result_comentario) > 0) {
-                $mensagem = "Erro: O RM informado já possui uma avaliação! Caso não tenha sido você, nôs contacte: <bold>suporte.integra@gmail.com";
-            } else {
-                // Se o RM não existe na tabela de comentários, verifica se é válido
-                if (in_array($rm, $rms_validos)) {
-                    // Processar o formulário se o RM for válido
-                    $mensagem = "Formulário enviado com sucesso!";
-                    // Aqui você pode prosseguir com o processamento dos dados, como inserção no banco
-                } else {
-                    // Retorna uma mensagem de erro caso o RM seja inválido
-                    $mensagem = "Erro: O RM informado não é válido para o curso selecionado!";
-                }
-            }
-
-            // Fechar a consulta de comentários
-            mysqli_stmt_close($stmt_comentario);
-        }
-
-        // Fechar a consulta de RMs válidos
-        mysqli_stmt_close($stmt);
+    // Verifica se o RM fornecido está na lista de RMs válidos
+    $rms_validos = [];
+    while ($row = mysqli_fetch_assoc($result)) {
+        $rms_validos[] = $row['rm'];
     }
-    ?>
+
+    // Verifica se há resultados retornados
+    if (empty($rms_validos)) {
+        $mensagem = "Nenhum RM válido encontrado para o curso selecionado!";
+    } else {
+        // Verifica se o RM já existe na tabela tbcomentarios
+        $sql_comentario = "SELECT rmVeterano FROM tbcomentarios WHERE rmVeterano = ?";
+        $stmt_comentario = mysqli_prepare($conexao, $sql_comentario);
+        mysqli_stmt_bind_param($stmt_comentario, "s", $rm);
+        mysqli_stmt_execute($stmt_comentario);
+        $result_comentario = mysqli_stmt_get_result($stmt_comentario);
+
+        if (mysqli_num_rows($result_comentario) > 0) {
+            $mensagem = "Erro: O RM informado já possui uma avaliação! Caso não tenha sido você, nos contacte: <bold>suporte.integra@gmail.com";
+        } else {
+            // Se o RM não existe na tabela de comentários, verifica se é válido
+            if (in_array($rm, $rms_validos)) {
+                // Processar o formulário se o RM for válido
+                $mensagem = "Formulário enviado com sucesso!";
+                
+                // Preparar a inserção de dados de forma segura
+                $sql_insert = "INSERT INTO tbcomentarios (nomeVeterano, rmVeterano, texto, curso) 
+                               VALUES (?, ?, ?, ?)";
+                $stmt_insert = mysqli_prepare($conexao, $sql_insert);
+                mysqli_stmt_bind_param($stmt_insert, "ssss", $nome, $rm, $observacoes, $curso);
+                
+                // Executar a inserção
+                if (mysqli_stmt_execute($stmt_insert)) {
+                    $mensagem = "Comentário inserido com sucesso!";
+                } else {
+                    $mensagem = "Erro ao inserir o comentário: " . mysqli_error($conexao);
+                }
+                
+                // Fechar a consulta de inserção
+                mysqli_stmt_close($stmt_insert);
+            } else {
+                // Retorna uma mensagem de erro caso o RM seja inválido
+                $mensagem = "Erro: O RM informado não é válido para o curso selecionado ou está no formato errado!";
+            }
+        }
+
+        // Fechar a consulta de comentários
+        mysqli_stmt_close($stmt_comentario);
+    }
+
+    // Fechar a consulta de RMs válidos
+    mysqli_stmt_close($stmt);
+}
+?>
+
 
     <section name="forms" class="mt-5 pt-5 flex-grow-1">
         <div class="container">

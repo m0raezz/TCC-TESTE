@@ -105,7 +105,7 @@
     <div class="tabela-lateral">
         <?php
         require "conexao.php";
-        $sql = "SELECT * FROM tbRM ORDER BY nome";
+        $sql = "SELECT * FROM tbRM WHERE curso = 'MKT' ORDER BY nome";
         $resultado = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
 
         //Cabeçalho da tabela de nome e rm

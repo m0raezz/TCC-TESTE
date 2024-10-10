@@ -14,7 +14,7 @@ body::-webkit-scrollbar-track {
 }
 
 body::-webkit-scrollbar-thumb {
-    background-color: #313131; /* Cor do scroll */
+    background-color: #5f5f5f; /* Cor do scroll */
     border-radius: 5px; /* Bordas do scroll */
 }
 
