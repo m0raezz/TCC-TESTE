@@ -81,6 +81,7 @@
                             <li><a class="dropdown-item" href="4.1_RH.php">RH</a></li>
                             <li><a class="dropdown-item" href="3.1_MKT.php">MKT</a></li>
                             <li><a class="dropdown-item" href="5.1_SJ.php">SJ</a></li>
+                            <li><a class="dropdown-item" href="ADM_CMT.php">REENCAMINHADAS</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">

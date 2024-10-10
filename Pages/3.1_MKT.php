@@ -81,11 +81,13 @@
                             <li><a class="dropdown-item" href="4.1_RH.php">RH</a></li>
                             <li><a class="dropdown-item" href="3.1_MKT.php">MKT</a></li>
                             <li><a class="dropdown-item" href="5.1_SJ.php">SJ</a></li>
+                            <li><a class="dropdown-item" href="ADM_CMT.php">REENCAMINHADAS</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
                         <a class="text-light nav-link me-2" href="ADM_VET.php">VETERANOS</a>
                     </li>
+                    
                 </ul>
                 
                 <!-- Login navbar right -->

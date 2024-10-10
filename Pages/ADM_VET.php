@@ -166,8 +166,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <!-- End NavBar-->
 
     <!-- Start Table for tbRM -->
+    <!-- Start Table for tbRM -->
     <div class="container mt-5 pt-5">
         <h2 class="text-center mb-4">Gerenciar RMs</h2>
+
         <form method="GET" class="mb-4">
             <div class="input-group">
                 <select name="curso" class="form-select" required>
@@ -182,47 +184,50 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
         </form>
 
-        <table class="table table-bordered table-hover">
-            <thead>
-                <tr>
-                    <th>Nome</th>
-                    <th>RM</th>
-                    <th>Curso</th>
-                    <th>Ações</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                // Verifica se foi feito um filtro de curso
-                $cursoFiltro = isset($_GET['curso']) ? $_GET['curso'] : '';
+        <div style="max-height: 850px; overflow-y: auto;">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>RM</th>
+                        <th>Curso</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    // Verifica se foi feito um filtro de curso
+                    $cursoFiltro = isset($_GET['curso']) ? $_GET['curso'] : '';
 
-                // Se houver filtro, busca apenas os registros do curso selecionado
-                if ($cursoFiltro) {
-                    $sqlSelect = "SELECT * FROM tbRM WHERE curso = ? ORDER BY nome ASC";
-                    $stmtSelect = mysqli_prepare($conexao, $sqlSelect);
-                    mysqli_stmt_bind_param($stmtSelect, "s", $cursoFiltro);
-                } else {
-                    // Se não houver filtro, busca todos os registros
-                    $sqlSelect = "SELECT * FROM tbRM ORDER BY nome ASC";
-                    $stmtSelect = mysqli_prepare($conexao, $sqlSelect);
-                }
+                    // Se houver filtro, busca apenas os registros do curso selecionado
+                    if ($cursoFiltro) {
+                        $sqlSelect = "SELECT * FROM tbRM WHERE curso = ? ORDER BY nome ASC";
+                        $stmtSelect = mysqli_prepare($conexao, $sqlSelect);
+                        mysqli_stmt_bind_param($stmtSelect, "s", $cursoFiltro);
+                    } else {
+                        // Se não houver filtro, busca todos os registros
+                        $sqlSelect = "SELECT * FROM tbRM ORDER BY nome ASC";
+                        $stmtSelect = mysqli_prepare($conexao, $sqlSelect);
+                    }
 
-                mysqli_stmt_execute($stmtSelect);
-                $resultSelect = mysqli_stmt_get_result($stmtSelect);
-                while ($row = mysqli_fetch_assoc($resultSelect)) {
-                    echo "<tr>
-                            <td>{$row['nome']}</td>
-                            <td>{$row['rm']}</td>
-                            <td>{$row['curso']}</td>
-                            <td>
-                                <a href='?delete={$row['rm']}' class='btn btn-danger' onclick='return confirm(\"Tem certeza que deseja excluir este registro?\")'>Excluir</a>
-                            </td>
-                          </tr>";
-                }
-                mysqli_stmt_close($stmtSelect);
-                ?>
-            </tbody>
-        </table>
+                    mysqli_stmt_execute($stmtSelect);
+                    $resultSelect = mysqli_stmt_get_result($stmtSelect);
+                    while ($row = mysqli_fetch_assoc($resultSelect)) {
+                        echo "<tr>
+                                <td>{$row['nome']}</td>
+                                <td>{$row['rm']}</td>
+                                <td>{$row['curso']}</td>
+                                <td>
+                                    <a href='?delete={$row['rm']}' class='btn btn-danger' onclick='return confirm(\"Tem certeza que deseja excluir este registro?\")'>Excluir</a>
+                                </td>
+                              </tr>";
+                    }
+                    mysqli_stmt_close($stmtSelect);
+                    ?>
+                </tbody>
+            </table>
+        </div>
+
 
         <form method="GET" class="mb-4">
             <div class="input-group">

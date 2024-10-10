@@ -97,60 +97,24 @@
     </nav>
     <!-- End NavBar-->
 
-    <!-- Tabela Lateral Esquerda -->
 
-
-
-    <input type="checkbox" id="toggleSidebar">
-    <label for="toggleSidebar" id="toggleSidebarLabel">Expandir</label>
-    <!-- Tabela Lateral Esquerda -->
-    <div class="tabela-lateral">
-        <?php
-        require "conexao.php";
-        $sql = "SELECT * FROM tbRM WHERE curso = 'ADM' ORDER BY nome";
-        $resultado = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
-
-        //Cabeçalho da tabela de nome e rm
-        echo "<ul class='list-group'>";
-        echo "<li class='list-group-item' style='display: flex; justify-content: space-between;'>";
-            echo "<span><strong><h3>Nome</h3></strong></span>";
-            echo "<span><strong><h3>RM</h3></strong></span>";
-        echo "</li>";
-
-            while($linha=mysqli_fetch_array($resultado))
-            {
-                //Nas linhas abaixo obtém cada coluna da tabela de clientes e armazena em cada variável
-                $nome = $linha["nome"];
-                $rm = $linha["rm"];
-                //Exibe os dados
-                echo "<li class='list-group-item' style='display: flex; justify-content: space-between;'>";
-                echo "<span class='nome'>$nome</span>";
-                echo "<span class='rm'><strong>$rm</strong></span>";
-                echo "</li>";
-            }
-
-            echo "</ul>";
-            ?>
-        </div>
-    </div>
 
     <!-- Start Containers -->
     <div class="container mt-5 container-custom text-right">
         <!-- Header de Avaliações -->
         <section class="avaliacoes-header">
-            <span>Avaliações Pendentes - ADM</span>
-            <span class="badge badge-success">✅ Aprovar</span>
-            <span class="badge badge-danger">❌ Reprovado</span>
-            <span class="badge badge-primary">↪️ Reencaminhar</span>
-        </section>
+            <span>Avaliações Reencaminhadas</span>
 
+            <span class="badge badge-danger"> Excluir</span>
+        
+        </section>
         <!-- Cards de Avaliações -->
         <section class="row">
             <!-- Primeira Coluna -->
             <div class="col-md-4 mb-4">
                 <div class="card text-center p-3">
                     <div class="stars">★ = </div>
-                    <div class="">Textp teste - NO ano de 2021 quando entrei na etec pensei que mudaria minha vida. Está contente com a mudança e ansiosa para entra na etec</div>
+                    <div class="">Textp teste - NO ano de 2021 quando entrei na etec pensei que mudaria minha vida. Está contente com a mudança e ansiosa para entra na etecTextp teste - NO ano de 2021 quando entrei na etec pensei que mudaria minha vida. Está contente com a mudança e ansiosa para entra na etecTextp teste - NO ano de 2021 quando entrei na etec pensei que mudaria minha vida. Está contente com a mudança e ansiosa para entra na etecTextp teste - NO ano de 2021 quando entrei na etec pensei que mudaria minha vida. Está contente com a mudança e ansiosa para entra na etecTextp teste - NO ano de 2021 quando entrei naaa </div>
                     <div class="d-flex justify-content-around mt-3">
                         <span class="text-success btn-animated">✅</span>
                         <span class="text-danger btn-animated">❌</span>
