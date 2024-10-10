@@ -121,13 +121,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="text-light collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="text-light nav-link active me-2" aria-current="page" href="#im">Inicio</a>
+                        <a class="text-light nav-link active me-2" aria-current="page" href="V_ADM.php #im">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="text-light nav-link me-2" href="#eq">Equipe</a>
+                        <a class="text-light nav-link me-2" href="V_ADM.php #eq">Equipe</a>
                     </li>
                     <li class="nav-item">
-                        <a class="text-light nav-link me-2" href="#sb">Sobre</a>
+                        <a class="text-light nav-link me-2" href="V_ADM.php #sb">Sobre</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="text-light nav-link dropdown-toggle me-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -165,7 +165,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </nav>
     <!-- End NavBar-->
 
-    <!-- Start Table for tbRM -->
+
     <!-- Start Table for tbRM -->
     <div class="container mt-5 pt-5">
         <h2 class="text-center mb-4">Gerenciar RMs</h2>

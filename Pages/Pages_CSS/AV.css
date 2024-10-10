@@ -54,8 +54,8 @@ body {
 }
 
 .stars {
-    font-size: 1.5rem;
-    color: #ffcc00; /* Estrelas amarelas */
+    font-size: 1.3rem;
+    color: black; /* Estrelas amarelas */
 }
 
 .btn-animated {
