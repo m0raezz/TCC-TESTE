@@ -182,8 +182,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 </div>
                 <div class="mb-3">
                     <label for="observacoes" class="form-label">Avaliação</label>
-                    <textarea class="form-control" id="observacoes" name="observacoes" rows="5" maxlength="2000" placeholder="Escreva sua Avaliação aqui..." required></textarea>
-                    <div class="form-text">Máximo de 2000 caracteres.</div>
+                    <textarea style="min-height: 160px; max-height: 160px;" class="form-control" id="observacoes" name="observacoes" rows="5" maxlength="600" placeholder="Escreva sua Avaliação aqui..." required></textarea>
+                    <div class="form-text">Máximo de 600 caracteres.</div>
                 </div>
                 <div class="text-center">
                     <button type="submit" class="btn btn-primary">Enviar</button>
