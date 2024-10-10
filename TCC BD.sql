@@ -11,31 +11,30 @@ insert into tbADM (CodigoADM, SenhaADM)
 Values ("151", "Etec2023ADM");
 
 
-
 create table tbcomentarios(
 
 nomeVeterano varchar(90) not null,
 rmVeterano int(5) not null primary key,
-texto text(2000) not null,
+texto text(600) not null,
 curso VARCHAR(4) NOT NULL,
 condicao char(1) default ("I"),
 
-CONSTRAINT curso_check CHECK (curso IN ('INFO', 'ADM', 'RH', 'JUR', 'MKT'))	
+CONSTRAINT curso_check CHECK (curso IN ('INFO', 'ADM', 'RH', 'SJ', 'MKT'))	
 );
 
 insert into tbcomentarios(nomeVeterano, rmVeterano, texto, curso)
-values ("Renan", 31775, "muito bom","INFO");
-
+values ("Renan", 31775, "muito bom","ADM");
 
 
 
 create table tbRM (
     nome VARCHAR(255) NOT NULL,
-    rm INT(5) primary key,
+    rm INT(5) PRIMARY KEY,
     curso VARCHAR(4) NOT NULL,
 
-CONSTRAINT curso_check CHECK (curso IN ('INFO', 'ADM', 'RH', 'JUR', 'MKT'))
+CONSTRAINT curso_check CHECK (curso IN ('INFO', 'ADM', 'RH', 'SJ', 'MKT'))
 );
+
 
 INSERT INTO tbRM (nome, rm, curso)
 VALUES 
@@ -62,15 +61,15 @@ VALUES
 ("JOÃO PEDRO DE LIMA SANTOS", 31885, "INFO"),
 ("JOÃO PEDRO DE OLIVEIRA SPERA", 31772, "INFO"),
 ("JOÃO PEDRO PAULINO SPINDA", 31884, "INFO"),
-("JULIA BELLINI SORRENTE", 31784, "INFO"),
+("JULIA BELLINI SORRENTE", 31784, "SJ"),
 ("KAIQUE ALVES DE CONTI", 31776, "INFO"),
 ("LETÍCIA DA SILVA FRANCISCO", 31780, "INFO"),
 ("LETÍCIA PEREIRA DA SILVA", 31770, "INFO"),
-("LETYCIA CONDE DA CRUZ", 31979, "INFO"),
+("LETYCIA CONDE DA CRUZ", 31979, "RH"),
 ("LUCAS ALESSANDRO MENDONÇA BENTO", 31889, "INFO"),
 ("LUCAS DANIEL TAVARES MAXIMO", 31773, "INFO"),
 ("LUIGI AUGUSTO VAZ CASSIANO DA SILVA", 31787, "INFO"),
-("MARCOS ALEXANDRE ALVES ARAUJO", 31778, "INFO"),
+("MARCOS ALEXANDRE ALVES ARAUJO", 31778, "MKT"),
 ("PABLO HENRIQUE NOGUEIRA", 31887, "INFO"),
 ("PEDRO HENRIQUE ALVES DIAS", 31886, "INFO"),
 ("PEDRO HENRIQUE DEZEM", 31763, "INFO"),
@@ -78,3 +77,4 @@ VALUES
 ("RENAN BRITO DE MORAES", 31775, "ADM"),
 ("RIAD ABBES BERNARDE", 31764, "INFO"),
 ("VINICIUS SILVA GUEDES", 32001, "INFO");
+
