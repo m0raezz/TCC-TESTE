@@ -138,7 +138,7 @@
 <div class="container mt-5 container-custom text-right">
     <!-- Header de Avaliações -->
     <section class="avaliacoes-header">
-        <span>Avaliações Pendentes - INFO</span>
+        <span>Avaliações Pendentes - MKT</span>
         <span class="badge badge-success">✅ Aprovar</span>
         <span class="badge badge-danger">❌ Reprovado</span>
         <span class="badge badge-primary">↪️ Reencaminhar</span>
@@ -224,7 +224,10 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <?php if (!empty($mensagem)) echo $mensagem; ?>
+                    <?php if (!empty($mensagem)) echo $mensagem; 
+                    
+                    ?>
+                                      
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>

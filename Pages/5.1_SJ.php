@@ -88,7 +88,6 @@
                         <a class="text-light nav-link me-2" href="ADM_VET.php">VETERANOS</a>
                     </li>
                     
-                    
                 </ul>
                 
                 <!-- Login navbar right -->
@@ -108,7 +107,7 @@
     <div class="tabela-lateral">
         <?php
         require "conexao.php";
-        $sql = "SELECT * FROM tbRM WHERE curso = 'SJ' ORDER BY nome";
+        $sql = "SELECT * FROM tbRM WHERE curso = 'INFO' ORDER BY nome";
         $resultado = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
 
         //Cabeçalho da tabela de nome e rm
@@ -136,133 +135,115 @@
     </div>
 
     <!-- Start Containers -->
-    <div class="container mt-5 container-custom text-right">
-        <!-- Header de Avaliações -->
-        <section class="avaliacoes-header">
-            <span>Avaliações Pendentes - SJ</span>
-            <span class="badge badge-success">✅ Aprovar</span>
-            <span class="badge badge-danger">❌ Reprovado</span>
-            <span class="badge badge-primary">↪️ Reencaminhar</span>
-        </section>
+<div class="container mt-5 container-custom text-right">
+    <!-- Header de Avaliações -->
+    <section class="avaliacoes-header">
+        <span>Avaliações Pendentes - SJ</span>
+        <span class="badge badge-success">✅ Aprovar</span>
+        <span class="badge badge-danger">❌ Reprovado</span>
+        <span class="badge badge-primary">↪️ Reencaminhar</span>
+    </section>
 
-        <!-- Cards de Avaliações -->
-        <section class="row">
-            <!-- Primeira Coluna -->
-            <div class="col-md-4 mb-4">
-                <div class="card text-center p-3">
-                    <div class="stars">★ = </div>
-                    <div class="">Textp teste - NO ano de 2021 quando entrei na etec pensei que mudaria minha vida. Está contente com a mudança e ansiosa para entra na etec</div>
-                    <div class="d-flex justify-content-around mt-3">
-                        <span class="text-success btn-animated">✅</span>
-                        <span class="text-danger btn-animated">❌</span>
-                        <span class="text-primary btn-animated">↪️</span>
-                    </div>
-                </div>
-            </div>
+    <!-- Cards de Avaliações -->
+    <section class="row">
+        <?php
+            require "conexao.php";
+            $sql = "SELECT * FROM tbcomentarios WHERE condicao ='I' AND curso = 'SJ'";
+            $resultado = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
 
-            <!-- Segunda Coluna -->
-            <div class="col-md-4 mb-4">
-                <div class="card text-center p-3">
-                    <div class="stars">★ = </div>
-                    <div class="">Textp teste - NO ano de 2021 quando entrei na etec pensei que mudaria minha vida. Está contente com a mudança e ansiosa para entra na etec</div>
-                    <div class="d-flex justify-content-around mt-3">
-                        <span class="text-success btn-animated">✅</span>
-                        <span class="text-danger btn-animated">❌</span>
-                        <span class="text-primary btn-animated">↪️</span>
-                    </div>
-                </div>
-            </div>
+            while($linha = mysqli_fetch_array($resultado)) {
+                $nomeVeterano = $linha["nomeVeterano"];
+                $rmVeterano = $linha["rmVeterano"];
+                $texto = $linha["texto"];
 
-            <!-- Terceira Coluna -->
-            <div class="col-md-4 mb-4">
-                <div class="card text-center p-3">
-                    <div class="stars">★ = </div>
-                    <div class="">Textp teste - NO ano de 2021 quando entrei na etec pensei que mudaria minha vida. Está contente com a mudança e ansiosa para entra na etec</div>
-                    <div class="d-flex justify-content-around mt-3">
-                        <span class="text-success btn-animated">✅</span>
-                        <span class="text-danger btn-animated">❌</span>
-                        <span class="text-primary btn-animated">↪️</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-4">
-                <div class="card text-center p-3">
-                    <div class="stars">★ = </div>
-                    <div class="">Textp teste - NO ano de 2021 quando entrei na etec pensei que mudaria minha vida. Está contente com a mudança e ansiosa para entra na etec</div>
-                    <div class="d-flex justify-content-around mt-3">
-                        <span class="text-success btn-animated">✅</span>
-                        <span class="text-danger btn-animated">❌</span>
-                        <span class="text-primary btn-animated">↪️</span>
-                    </div>
-                </div>
-            </div>
+                // Exibe o card com estrutura fixa e personalização conforme necessidade
+                echo "<div class='col-md-4 mb-4'>";
+                    echo "<div class='card text-center p-3'>";
+                        echo "<div class='stars'>Nome: $nomeVeterano   </div>";
+                        echo "<div class='stars'>RM: $rmVeterano   </div><hr>";
+                        echo "<div class='texto'>$texto</div>";
+                        echo "<div class='d-flex justify-content-around mt-3'>";
 
-            <div class="col-md-4 mb-4">
-                <div class="card text-center p-3">
-                    <div class="stars">★ = </div>
-                    <div class="">Textp teste - NO ano de 2021 quando entrei na etec pensei que mudaria minha vida. Está contente com a mudança e ansiosa para entra na etec</div>
-                    <div class="d-flex justify-content-around mt-3">
-                        <span class="text-success btn-animated">✅</span>
-                        <span class="text-danger btn-animated">❌</span>
-                        <span class="text-primary btn-animated">↪️</span>
-                    </div>
-                </div>
-            </div>
+                        // Add a form to handle the button click
+                        echo "<form action='' method='post' onsubmit='submitForm(event, this)'>";
+                            echo "<input type='hidden' name='rmVeterano' value='$rmVeterano'>";
+                            echo "<input type='submit' name='salvar' value='Salvar' class='btn btn-success'>";
+                        echo "</form>";
 
-            <div class="col-md-4 mb-4">
-                <div class="card text-center p-3">
-                    <div class="stars">★ = </div>
-                    <div class="">Textp teste - NO ano de 2021 quando entrei na etec pensei que mudaria minha vida. Está contente com a mudança e ansiosa para entra na etec</div>
-                    <div class="d-flex justify-content-around mt-3">
-                        <span class="text-success btn-animated">✅</span>
-                        <span class="text-danger btn-animated">❌</span>
-                        <span class="text-primary btn-animated">↪️</span>
-                    </div>
-                </div>
-            </div>
+                        echo "<form action='' method='post' onsubmit='submitForm(event, this)'>";
+                            echo "<input type='hidden' name='rmVeterano' value='$rmVeterano'>";
+                            echo "<input type='submit' name='excluir' value='Excluir' class='btn btn-danger'>";
+                        echo "</form>";
 
-            <div class="col-md-4 mb-4">
-                <div class="card text-center p-3">
-                    <div class="stars">★ = </div>
-                    <div class="">Textp teste - NO ano de 2021 quando entrei na etec pensei que mudaria minha vida. Está contente com a mudança e ansiosa para entra na etec</div>
-                    <div class="d-flex justify-content-around mt-3">
-                        <span class="text-success btn-animated">✅</span>
-                        <span class="text-danger btn-animated">❌</span>
-                        <span class="text-primary btn-animated">↪️</span>
-                    </div>
-                </div>
-            </div>
+                        echo "<form action='' method='post' onsubmit='submitForm(event, this)'>";
+                            echo "<input type='hidden' name='rmVeterano' value='$rmVeterano'>";
+                            echo "<input type='submit' name='encaminhar' value='Encaminhar' class='btn btn-primary'>";
+                        echo "</form>";
 
-            <div class="col-md-4 mb-4">
-                <div class="card text-center p-3">
-                    <div class="stars">★ = </div>
-                    <div class="">Textp teste - NO ano de 2021 quando entrei na etec pensei que mudaria minha vida. Está contente com a mudança e ansiosa para entra na etec</div>
-                    <div class="d-flex justify-content-around mt-3">
-                        <span class="text-success btn-animated">✅</span>
-                        <span class="text-danger btn-animated">❌</span>
-                        <span class="text-primary btn-animated">↪️</span>
-                    </div>
-                </div>
-            </div>
+                    echo "</div>";
+                echo "</div>";
+            echo "</div>";
+        }
 
-            <div class="col-md-4 mb-4">
-                <div class="card text-center p-3">
-                    <div class="stars">★ = </div>
-                    <div class="">Textp teste - NO ano de 2021 quando entrei na etec pensei que mudaria minha vida. Está contente com a mudança e ansiosa para entra na etec</div>
-                    <div class="d-flex justify-content-around mt-3">
-                        <span class="text-success btn-animated">✅</span>
-                        <span class="text-danger btn-animated">❌</span>
-                        <span class="text-primary btn-animated">↪️</span>
-                    </div>
-                </div>
-            </div>
-
-            
-
+        // Check if the form is submitted
+        if(isset($_POST["salvar"])) {
+            $rmVeterano = $_POST["rmVeterano"];
+            $sql = "UPDATE tbcomentarios SET condicao='A' WHERE rmVeterano='$rmVeterano'";
+            mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
+            echo '<script>window.location.href = window.location.href;</script>';
 
     
-        </section>
-    
+        }
 
+        if(isset($_POST["excluir"])) {
+            $rmVeterano = $_POST["rmVeterano"];
+            $sql = "UPDATE tbcomentarios SET condicao='X' WHERE rmVeterano='$rmVeterano'";
+            mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
+            echo '<script>window.location.href = window.location.href;</script>';
+          
+        }
+
+
+        if(isset($_POST["encaminhar"])) {
+            $rmVeterano = $_POST["rmVeterano"];
+            $sql = "UPDATE tbcomentarios SET condicao='E' WHERE rmVeterano='$rmVeterano'";
+            mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
+            echo '<script>window.location.href = window.location.href;</script>';
+        }
+
+        ?>
+
+
+
+            <!-- Modal para exibir mensagem -->
+    <div class="modal fade" id="mensagemModal" tabindex="-1" aria-labelledby="mensagemModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="mensagemModalLabel">Mensagem</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <?php if (!empty($mensagem)) echo $mensagem; 
+                    
+                    ?>
+                                      
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mostra o modal se houver uma mensagem
+        <?php if (!empty($mensagem)) { ?>
+            var myModal = new bootstrap.Modal(document.getElementById('mensagemModal'));
+            myModal.show();
+        <?php } ?>
+    </script>
+    </section>
+</div>
 </body>
 </html>
