@@ -1,3 +1,5 @@
+
+
 CREATE DATABASE TESTE1;
 
 use TESTE1;
@@ -10,7 +12,7 @@ SenhaADM Varchar(40) not null
 insert into tbADM (CodigoADM, SenhaADM)
 Values ("151", "Etec2023ADM");
 
-select * from tbcomentarios
+drop table tbcomentarios
 create table tbcomentarios(
 
 nomeVeterano varchar(90) not null,
@@ -18,13 +20,15 @@ rmVeterano int(5) not null primary key,
 texto text(600) not null,
 curso VARCHAR(4) NOT NULL,
 condicao char(1) default ("I"),
+ano YEAR DEFAULT YEAR(CURDATE()),
+
 
 CONSTRAINT curso_check CHECK (curso IN ('INFO', 'ADM', 'RH', 'SJ', 'MKT'))	
 );
 
-insert into tbcomentarios(nomeVeterano, rmVeterano, texto, curso)
-values ("Renan", 31775, "muito bom","ADM");
 
+insert into tbcomentarios(nomeVeterano, rmVeterano, texto, curso, ano)
+values ("Renan", 31767, "muito bom","INFO","2024");
 
 
 create table tbRM (
@@ -32,7 +36,7 @@ create table tbRM (
     rm INT(5) PRIMARY KEY,
     curso VARCHAR(4) NOT NULL,
 
-CONSTRAINT curso_check CHECK (curso IN ('INFO', 'ADM', 'RH', 'SJ', 'MKT'))
+CONSTRAINT curso_check2 CHECK (curso IN ('INFO', 'ADM', 'RH', 'SJ', 'MKT'))
 );
 
 
