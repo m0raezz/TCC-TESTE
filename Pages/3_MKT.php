@@ -42,12 +42,12 @@
     <script>
         new window.VLibras.Widget('https://vlibras.gov.br/app');
     </script>
-
+    
     <!-- Start NavBar-->
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
-                <img src="../images/logo3.png" width="45" height="48" alt="Logo">
+                <img src="../images/logo3.png" width="45" height="45" alt="Logo">
             </a>
             <a class="navbar-brand text-light" href="../index.php">Etec Bebedouro</a>
             <button class="text-light navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -82,70 +82,53 @@
     <div class="container-fluid" style="margin-top: 80px;">
 
         <div class="row full-height">
-            <div class="col-md-6 d-flex flex-column justify-content-center align-items-center" style="background-color: #f8f9fa;" name="Esquerda">
-                <h2 class="text-center">Curso MKT</h2>
-                <p>Texto sobre o curso.</p>
-                <a href="form.php" class="y btn btn-lg btn-outline-danger"style="text-decoration: none;">Avalie o curso</a>
+            <div class="col-md-6 d-flex flex-column justify-content-top align-items-center texto-es" style="background-color: #f8f9fa;" name="Esquerda">
+                <h1 class="text-center texto-ti">MARKETING</h1>
+                <p class="texto-curso">O curso é estruturado em três séries anuais, com uma carga horária de seis aulas diárias em meio período (manhã). A matriz curricular integra disciplinas da Base Nacional Comum do Ensino Médio com componentes do Ensino Técnico. Ao concluir as três séries, o aluno terá completado o Ensino Médio e receberá o diploma de Técnico, o que lhe permitirá exercer a habilitação profissional e prosseguir com os estudos em nível superior.<br>
+                <br>O estudante aprenderá que marketing transcende a mera publicidade; trata-se de um processo que inicia com a compreensão das necessidades do consumidor, visando o desenvolvimento de produtos, serviços e ideias a serem comercializados. Para aprofundar-se nesse campo, o aluno necessitará de conhecimentos em língua portuguesa, geografia e matemática. Aprenderá a definir o público-alvo de cada produto ou serviço e a analisar o processo de interação entre vendedores e compradores. Além disso, estudará as diversas ferramentas de comunicação, como publicidade, telemarketing e promoções de vendas. O curso também contemplará a criação de logotipos, rótulos e embalagens. A formação técnica em Marketing será complementada por disciplinas como Administração de Empresas, Legislação (incluindo o Código de Defesa do Consumidor) e aulas de Inglês e Espanhol voltadas à leitura de textos.<br>
+                <br>O técnico em Marketing estará apto a realizar pesquisas de mercado para identificar o comportamento do consumidor. No ponto de venda (como supermercados, shoppings e lojas), poderá demonstrar produtos, montar materiais promocionais e negociar espaços para a exposição adequada dos itens a serem comercializados. Também será responsável pela elaboração de orçamentos para a execução de ações, como promoções e campanhas publicitárias, calculando os custos envolvidos. Ademais, poderá acompanhar as ações implementadas para avaliar se os resultados foram satisfatórios. Em pequenas empresas, o profissional poderá desenvolver logotipos, rótulos e criar conteúdo para redes sociais.</p>
+                <a href="form.php" class="bt">Avalie o curso</a>
             </div>
 
 
-            <div class="col-md-6 d-flex flex-column justify-content-center align-items-center" style="background-color: #e9ecef;" name="Direita">
-                <h2 class="text-center">Avaliações</h2>
-                <p>Avaliações.</p>
+            <div class="col-md-6 d-flex flex-column justify-content-center align-items-center texto-di"  name="Direita">
+                <h2 class="text-center" style="font-weight: bold;">Avaliações</h2>
 
                 <!-- Nova div dentro da div Direita -->
                 <div class="d-flex flex-column  " style="background-color: #d3d3d3; width: 100%; height: 100%;">
-                 
                     <!-- Div para cards com rolagem -->
                     <div class="scrollable-cards">
-                        <!-- Exemplo de cards -->
-                        <div class="card mb-2">
-                            <div class="card-body">
-                                <h5 class="card-title">Avaliação 1</h5>
-                                <p class="card-text">Texto insano insanudo falando sobre como é a escola apenas escrito para testar como a div reage quando o texto é bem maior que o esperado, tomara que o site n colapse e derreta AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</p>
-                            </div>
-                        </div>
-                        <div class="card mb-2">
-                            <div class="card-body">
-                                <h5 class="card-title">Avaliação 2</h5>
-                                <p class="card-text">Descrição da avaliação 2.</p>
-                            </div>
-                        </div>
-                        <div class="card mb-2">
-                            <div class="card-body">
-                                <h5 class="card-title">Renan Brito de Moraes - INFO 2024</h5> 
-                                <p class="card-text">Gostei do curso tmj 👌</p>
-                            </div>    
-                        </div>
-                        <div class="card mb-2">
-                            <div class="card-body">
-                                <h5 class="card-title">Júlia Beline Sorrente - INFO 2024</h5>  
-                                <p class="card-text">Gostei do curso tmj ✅</p>
-                            </div>
-                        </div>
-                        <div class="card mb-2">
-                            <div class="card-body">
-                                <h5 class="card-title">Marcos Alexandre Araujo - INFO 2024</h5> 
-                                <p class="card-text">Gostei do curso tmj 🙅‍♀️</p>
-                            </div>
-                        </div>
-                        <div class="card mb-2">
-                            <div class="card-body">
-                                <h5 class="card-title">Letycia Conde da Cruz - INFO 2024</h5> 
-                                <p class="card-text">Gostei do curso tmj 🐒</p>
-                            </div>
-                        </div>
+
+                    <?php
+                    require "conexao.php";
+                    $sql = "SELECT * FROM tbcomentarios WHERE condicao ='A' AND curso = 'MKT'";
+                    $resultado = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
+                    
+                    while($linha = mysqli_fetch_array($resultado)) {
+                    $nomeVeterano = $linha["nomeVeterano"];
+                    $texto = $linha["texto"];
 
                         
-                        <!-- Adicione mais cards conforme necessário -->
+                        echo "<div class='card mb-2'>";
+                        echo  "<div class='card-body'>";
+                        echo  "<h5 class='card-title'>$nomeVeterano</h5>";
+                        echo  "<p class='card-text'>$texto</p>";
+                        echo  "</div>";
+                        echo  "</div>";
+                        
+                    }
+                        
+                        ?>
                     </div>
+                    
+                    
                 </div>
             </div>
         </div>
     </div>
     <!-- End AV -->
 
-    <!-- End Footer -->
+    <!-- Start Footer -->
     <footer class="bg-body-tertiary text-center text-lg-start fixed-bottom">
         <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
             © 2024 Integra Etec:

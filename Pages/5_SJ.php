@@ -42,12 +42,12 @@
     <script>
         new window.VLibras.Widget('https://vlibras.gov.br/app');
     </script>
-
+    
     <!-- Start NavBar-->
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
-                <img src="../images/logo3.png" width="45" height="48" alt="Logo">
+                <img src="../images/logo3.png" width="45" height="45" alt="Logo">
             </a>
             <a class="navbar-brand text-light" href="../index.php">Etec Bebedouro</a>
             <button class="text-light navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -82,70 +82,53 @@
     <div class="container-fluid" style="margin-top: 80px;">
 
         <div class="row full-height">
-            <div class="col-md-6 d-flex flex-column justify-content-center align-items-center" style="background-color: #f8f9fa;" name="Esquerda">
-                <h2 class="text-center">Curso SJ</h2>
-                <p>Texto sobre o curso.</p>
-                <a href="form.php" class="y btn btn-lg btn-outline-danger"style="text-decoration: none;">Avalie o curso</a>
+            <div class="col-md-6 d-flex flex-column justify-content-top align-items-center texto-es" style="background-color: #f8f9fa;" name="Esquerda">
+                <h1 class="text-center texto-ti">SERVIÇOS JURÍDICOS</h1>
+                <p class="texto-curso">O curso é estruturado em três séries anuais, com uma carga horária de seis aulas diárias em meio período (manhã). A matriz curricular combina disciplinas da Base Nacional Comum do Ensino Médio com componentes do Ensino Técnico. Ao concluir as três séries, o aluno terá finalizado o Ensino Médio e receberá o diploma de Técnico, o que lhe permitirá exercer a habilitação profissional e continuar os estudos em nível superior.<br>
+                <br>Com foco nas leis e normas, o curso abrange diversas áreas do Direito. O aluno estudará a Constituição Federal (Direito Constitucional), os mecanismos de punição a crimes (Direito Penal), as regras que regem as relações e disputas entre indivíduos (Direito Civil), o funcionamento dos órgãos públicos (Direito Administrativo), as normas que regulam as relações comerciais (Direito Empresarial), os direitos e deveres entre empregadores e empregados (Direito do Trabalho), a legislação tributária (Direito Tributário) e a proteção ao consumidor (Direito do Consumidor), entre outros temas. O estudante também aprenderá a elaborar e redigir processos, contratos e documentos jurídicos. Além do estudo das leis, o aluno terá formação em conceitos de administração de empresas, matemática financeira, técnicas de atendimento ao cliente e inglês instrumental, sendo a língua portuguesa fundamental.<br>
+                <br>O técnico em Direito atuará como auxiliar do advogado, oferecendo suporte técnico e administrativo a empresas. Suas responsabilidades incluem prestar atendimento ao público, verificar os prazos de cada etapa de processos judiciais, calcular os honorários dos advogados e os custos dos processos, receber e enviar documentos, registrando a movimentação em sistemas ou livros de protocolo, redigir contratos, ofícios, processos e cartas comerciais, além de arquivar processos e realizar outras atividades pertinentes.</p>
+                <a href="form.php" class="bt">Avalie o curso</a>
             </div>
 
 
-            <div class="col-md-6 d-flex flex-column justify-content-center align-items-center" style="background-color: #e9ecef;" name="Direita">
-                <h2 class="text-center">Avaliações</h2>
-                <p>Avaliações.</p>
+            <div class="col-md-6 d-flex flex-column justify-content-center align-items-center texto-di"  name="Direita">
+                <h2 class="text-center" style="font-weight: bold;">Avaliações</h2>
 
                 <!-- Nova div dentro da div Direita -->
                 <div class="d-flex flex-column  " style="background-color: #d3d3d3; width: 100%; height: 100%;">
-                 
                     <!-- Div para cards com rolagem -->
                     <div class="scrollable-cards">
-                        <!-- Exemplo de cards -->
-                        <div class="card mb-2">
-                            <div class="card-body">
-                                <h5 class="card-title">Avaliação 1</h5>
-                                <p class="card-text">Texto insano insanudo falando sobre como é a escola apenas escrito para testar como a div reage quando o texto é bem maior que o esperado, tomara que o site n colapse e derreta AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</p>
-                            </div>
-                        </div>
-                        <div class="card mb-2">
-                            <div class="card-body">
-                                <h5 class="card-title">Avaliação 2</h5>
-                                <p class="card-text">Descrição da avaliação 2.</p>
-                            </div>
-                        </div>
-                        <div class="card mb-2">
-                            <div class="card-body">
-                                <h5 class="card-title">Renan Brito de Moraes - INFO 2024</h5> 
-                                <p class="card-text">Gostei do curso tmj 👌</p>
-                            </div>    
-                        </div>
-                        <div class="card mb-2">
-                            <div class="card-body">
-                                <h5 class="card-title">Júlia Beline Sorrente - INFO 2024</h5>  
-                                <p class="card-text">Gostei do curso tmj ✅</p>
-                            </div>
-                        </div>
-                        <div class="card mb-2">
-                            <div class="card-body">
-                                <h5 class="card-title">Marcos Alexandre Araujo - INFO 2024</h5> 
-                                <p class="card-text">Gostei do curso tmj 🙅‍♀️</p>
-                            </div>
-                        </div>
-                        <div class="card mb-2">
-                            <div class="card-body">
-                                <h5 class="card-title">Letycia Conde da Cruz - INFO 2024</h5> 
-                                <p class="card-text">Gostei do curso tmj 🐒</p>
-                            </div>
-                        </div>
+
+                    <?php
+                    require "conexao.php";
+                    $sql = "SELECT * FROM tbcomentarios WHERE condicao ='A' AND curso = 'SJ'";
+                    $resultado = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
+                    
+                    while($linha = mysqli_fetch_array($resultado)) {
+                    $nomeVeterano = $linha["nomeVeterano"];
+                    $texto = $linha["texto"];
 
                         
-                        <!-- Adicione mais cards conforme necessário -->
+                        echo "<div class='card mb-2'>";
+                        echo  "<div class='card-body'>";
+                        echo  "<h5 class='card-title'>$nomeVeterano</h5>";
+                        echo  "<p class='card-text'>$texto</p>";
+                        echo  "</div>";
+                        echo  "</div>";
+                        
+                    }
+                        
+                        ?>
                     </div>
+                    
+                    
                 </div>
             </div>
         </div>
     </div>
     <!-- End AV -->
 
-    <!-- End Footer -->
+    <!-- Start Footer -->
     <footer class="bg-body-tertiary text-center text-lg-start fixed-bottom">
         <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
             © 2024 Integra Etec:

@@ -36,7 +36,7 @@
         <div class="container-fluid">
             <!-- Navbar icon left -->
             <a class="navbar-brand" href="../index.php">
-                <img src="../images/logo3.png" width="45" height="48" alt="Logo">
+                <img src="../images/logo3.png" width="45" height="45" alt="Logo">
             </a>
             <a class="navbar-brand text-light" href="V_ADM.php">Etec Bebedouro</a>
             
@@ -63,10 +63,10 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="2_ADM.php">Administração - Novotec integrado</a></li>
-                            <li><a class="dropdown-item" href="1_INFO">Informática p/ Internet - Novotec integrado</a></li>
-                            <li><a class="dropdown-item" href="4_RH">Recursos Humanos - Novotec integrado</a></li>
-                            <li><a class="dropdown-item" href="3_MKT">Marketing - Novotec integrado</a></li>
-                            <li><a class="dropdown-item" href="5_SJ">Serviços Jurídicos - Novotec integrado</a></li>
+                            <li><a class="dropdown-item" href="1_INFO.php">Informática p/ Internet - Novotec integrado</a></li>
+                            <li><a class="dropdown-item" href="4_RH.php">Recursos Humanos - Novotec integrado</a></li>
+                            <li><a class="dropdown-item" href="3_MKT.php">Marketing - Novotec integrado</a></li>
+                            <li><a class="dropdown-item" href="5_SJ.php">Serviços Jurídicos - Novotec integrado</a></li>
                         </ul>
                     </li>
 

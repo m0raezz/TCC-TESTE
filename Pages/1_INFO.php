@@ -44,10 +44,10 @@
     </script>
     
     <!-- Start NavBar-->
-    <nav class="navbar navbar-expand-lg fixed-top">
+    <nav class="navbar navbar-expand-lg fixed-top ">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
-                <img src="../images/logo3.png" width="45" height="48" alt="Logo">
+                <img src="../images/logo3.png" width="45" height="45" alt="Logo">
             </a>
             <a class="navbar-brand text-light" href="../index.php">Etec Bebedouro</a>
             <button class="text-light navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -82,63 +82,48 @@
     <div class="container-fluid" style="margin-top: 80px;">
 
         <div class="row full-height">
-            <div class="col-md-6 d-flex flex-column justify-content-center align-items-center" style="background-color: #f8f9fa;" name="Esquerda">
-                <h2 class="text-center">Curso INFO</h2>
-                <p>Texto sobre o curso.</p>
-                <a href="form.php" class="y btn btn-lg btn-outline-danger"style="text-decoration: none;">Avalie o curso</a>
+            <div class="col-md-6 d-flex flex-column justify-content-top align-items-center texto-es" style="background-color: #f8f9fa;" name="Esquerda">
+                <h1 class="text-center texto-ti">INFORMÁTICA PARA INTERNET</h1>
+                <p class="texto-curso">
+                O currículo é estruturado em três séries anuais interligadas, com a carga horária de até oito aulas diárias em período integral. A matriz curricular inclui projetos de aprofundamento focados nas diversas áreas do conhecimento, correspondendo às ocupações identificadas no mercado de trabalho. Ao concluir as três séries, o aluno receberá o diploma de técnico, o que lhe conferirá o direito de exercer a habilitação profissional e prosseguir com os estudos em nível superior.<br>
+                <br>O curso abrange o processo de criação de sites e o desenvolvimento de programas que podem ser integrados a páginas na internet. Para isso, o aluno estudará raciocínio lógico e linguagens de programação, que permitem a implementação de comandos para desenvolver funcionalidades e estruturar um site. Além disso, os estudantes terão a oportunidade de aprender fundamentos de design, visando à criação de páginas mais atraentes e de fácil navegação. O curso também contempla a criação e a modificação de bancos de dados que alimentarão os sites. Noções de marketing digital e empreendedorismo serão abordadas ao longo da formação.<br>
+                <br>O profissional formado será capaz de criar websites que atendam às necessidades dos clientes, identificando e sugerindo as melhores soluções; realizar a manutenção de portais, sites e intranets; gerenciar a identidade visual das páginas de uma empresa; customizar plataformas de conteúdo para a web, como blogs e e-commerces; desenvolver e manter bancos de dados para websites; adaptar páginas para incorporar vídeos, áudios e funções que favoreçam a acessibilidade, como comandos de voz; otimizar imagens para uso na internet; e preparar layouts para newsletters ou e-mails marketing, entre outras atividades.
+                </p>
+                <a href="form.php" class="bt">Avalie o curso</a>
             </div>
 
 
-            <div class="col-md-6 d-flex flex-column justify-content-center align-items-center" style="background-color: #e9ecef;" name="Direita">
-                <h2 class="text-center">Avaliações</h2>
-                <p>Avaliações.</p>
+            <div class="col-md-6 d-flex flex-column justify-content-center align-items-center texto-di"  name="Direita">
+                <h2 class="text-center" style="font-weight: bold;">Avaliações</h2>
 
                 <!-- Nova div dentro da div Direita -->
                 <div class="d-flex flex-column  " style="background-color: #d3d3d3; width: 100%; height: 100%;">
-                 
                     <!-- Div para cards com rolagem -->
                     <div class="scrollable-cards">
-                        <!-- Exemplo de cards -->
-                        <div class="card mb-2">
-                            <div class="card-body">
-                                <h5 class="card-title">Avaliação 1</h5>
-                                <p class="card-text">Texto insano insanudo falando sobre como é a escola apenas escrito para testar como a div reage quando o texto é bem maior que o esperado, tomara que o site n colapse e derreta AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</p>
-                            </div>
-                        </div>
-                        <div class="card mb-2">
-                            <div class="card-body">
-                                <h5 class="card-title">Avaliação 2</h5>
-                                <p class="card-text">Descrição da avaliação 2.</p>
-                            </div>
-                        </div>
-                        <div class="card mb-2">
-                            <div class="card-body">
-                                <h5 class="card-title">Renan Brito de Moraes - INFO 2024</h5> 
-                                <p class="card-text">Gostei do curso tmj 👌</p>
-                            </div>    
-                        </div>
-                        <div class="card mb-2">
-                            <div class="card-body">
-                                <h5 class="card-title">Júlia Beline Sorrente - INFO 2024</h5>  
-                                <p class="card-text">Gostei do curso tmj ✅</p>
-                            </div>
-                        </div>
-                        <div class="card mb-2">
-                            <div class="card-body">
-                                <h5 class="card-title">Marcos Alexandre Araujo - INFO 2024</h5> 
-                                <p class="card-text">Gostei do curso tmj 🙅‍♀️</p>
-                            </div>
-                        </div>
-                        <div class="card mb-2">
-                            <div class="card-body">
-                                <h5 class="card-title">Letycia Conde da Cruz - INFO 2024</h5> 
-                                <p class="card-text">Gostei do curso tmj 🐒</p>
-                            </div>
-                        </div>
+
+                    <?php
+                    require "conexao.php";
+                    $sql = "SELECT * FROM tbcomentarios WHERE condicao ='A' AND curso = 'INFO'";
+                    $resultado = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
+                    
+                    while($linha = mysqli_fetch_array($resultado)) {
+                    $nomeVeterano = $linha["nomeVeterano"];
+                    $texto = $linha["texto"];
 
                         
-                        <!-- Adicione mais cards conforme necessário -->
+                        echo "<div class='card mb-2'>";
+                        echo  "<div class='card-body'>";
+                        echo  "<h5 class='card-title'>$nomeVeterano</h5>";
+                        echo  "<p class='card-text'>$texto</p>";
+                        echo  "</div>";
+                        echo  "</div>";
+                        
+                    }
+                        
+                        ?>
                     </div>
+                    
+                    
                 </div>
             </div>
         </div>
@@ -146,7 +131,7 @@
     <!-- End AV -->
 
     <!-- Start Footer -->
-    <footer class="bg-body-tertiary text-center text-lg-start fixed-bottom">
+    <footer class="bg-body-tertiary text-center text-lg-start ">
         <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
             © 2024 Integra Etec:
             <a class="text-body" href="https://etecbebedouro.com.br">etecbebedouro.com.br</a>

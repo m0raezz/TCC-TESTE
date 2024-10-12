@@ -64,18 +64,18 @@
                             CURSOS
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="2.1_ADM.php">Administração - Novotec integrado</a></li>
-                            <li><a class="dropdown-item" href="1.1_INFO.php">Informática p/ Internet - Novotec integrado</a></li>
-                            <li><a class="dropdown-item" href="4.1_RH.php">Recursos Humanos - Novotec integrado</a></li>
-                            <li><a class="dropdown-item" href="3.1_MKT.php">Marketing - Novotec integrado</a></li>
-                            <li><a class="dropdown-item" href="5.1_SJ.php">Serviços Jurídicos - Novotec integrado</a></li>
+                            <li><a class="dropdown-item" href="2_ADM.php">Administração - Novotec integrado</a></li>
+                            <li><a class="dropdown-item" href="1_INFO.php">Informática p/ Internet - Novotec integrado</a></li>
+                            <li><a class="dropdown-item" href="4_RH.php">Recursos Humanos - Novotec integrado</a></li>
+                            <li><a class="dropdown-item" href="3_MKT.php">Marketing - Novotec integrado</a></li>
+                            <li><a class="dropdown-item" href="5_SJ.php">Serviços Jurídicos - Novotec integrado</a></li>
                         </ul>
                     </li>
                 </ul>
                 
                 <!-- Login navbar right -->
                 <a href="login.php" class="ms-auto">
-                    <img src="../images/login.png" width="45" height="48" alt="Logo">
+                    <img src="../images/login.png" width="45" height="45" alt="Logo">
                 </a>
             </div>
         </div>

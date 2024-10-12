@@ -85,3 +85,58 @@ body::-webkit-scrollbar-thumb {
 #sb {
     padding: 2rem 1rem; /* Adiciona espaçamento ao redor da seção */
 }
+
+
+.texto-curso {
+    text-align: justify;
+    max-width: 80%;
+    background-color: #777777;
+    color: white;
+    padding: 1.5em;
+    border-radius: 10px;
+
+}
+
+.texto-ti{
+    color: #ffffff;
+    padding: 0.3em;
+    font-weight: bold;
+    background-color: #212528;
+    border-radius: 10px;
+    margin-top: 1em;
+    margin-bottom: 0.4em;
+    max-width: 80%;
+    min-width: 80%;
+    
+}
+
+.texto-di {
+    background-color: #e9ecef;
+    border-radius: 10px;
+    color: #83082bdc;
+    
+}
+
+.texto-es{
+    background-image: url(Images/Fundo5.png);
+    background-size: 100%;
+    
+
+}
+
+.bt{
+    background-color: #83082A;
+    margin-top: 0.3em;
+    padding: 0.7em;
+    margin-bottom: 3.9em;
+    border-radius: 10px;
+    font-size:larger;
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.bt:hover{
+    background-color: #99052f;
+}
+
+
