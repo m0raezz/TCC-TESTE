@@ -1,5 +1,3 @@
-
-
 CREATE DATABASE TESTE1;
 
 use TESTE1;
@@ -12,7 +10,7 @@ SenhaADM Varchar(40) not null
 insert into tbADM (CodigoADM, SenhaADM)
 Values ("151", "Etec2023ADM");
 
-drop table tbcomentarios
+
 create table tbcomentarios(
 
 nomeVeterano varchar(90) not null,
