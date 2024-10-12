@@ -17,7 +17,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
   
-    <title>Teste</title>
+    <title>Integra Etec</title>
+    <link rel="icon" type="image/x-icon" href="Images\logo1.png">
 </head>
 <body>
     <!--V Libras-->
@@ -94,7 +95,7 @@
         <div class="row">
             <div class="col-md-3 mb-4">
                 <div class="card" style="width: 100%;">
-                    <img src="Images/imagem.jpg" class="card-img-top" alt="Imagem do Card 1">
+                    <img src="Images/Renan.png" class="card-img-top" alt="Imagem do Card 1">
                     <div class="card-body">
                         <h5 class="card-title">Renan Moraes</h5>
                         <p class="card-text">Responsavel pela parte Frontend e Backend.</p>
@@ -103,7 +104,7 @@
             </div>
             <div class="col-md-3 mb-4">
                 <div class="card" style="width: 100%;">
-                    <img src="Images/imagem.jpg" class="card-img-top" alt="Imagem do Card 2">
+                    <img src="Images/julia.png" class="card-img-top" alt="Imagem do Card 2">
                     <div class="card-body">
                         <h5 class="card-title">Julia Sorrente</h5>
                         <p class="card-text">responsavel pela Parte Backend e Frontend do site.</p>
@@ -112,7 +113,7 @@
             </div>
             <div class="col-md-3 mb-4">
                 <div class="card" style="width: 100%;">
-                    <img src="Images/imagem.jpg" class="card-img-top" alt="Imagem do Card 3">
+                    <img src="Images/Marcos.png" class="card-img-top" alt="Imagem do Card 3">
                     <div class="card-body">
                         <h5 class="card-title">Marcos Alexandre</h5>
                         <p class="card-text">Responsavel pela parte Backend do site.</p>
@@ -121,7 +122,7 @@
             </div>
             <div class="col-md-3 mb-4">
                 <div class="card" style="width: 100%;">
-                    <img src="Images/imagem.jpg" class="card-img-top" alt="Imagem do Card 4">
+                    <img src="Images/Conde1.png" class="card-img-top" alt="Imagem do Card 4">
                     <div class="card-body">
                         <h5 class="card-title">Letycia Conde</h5>
                         <p class="card-text">Responsavel pela parte Frontend do site.</p>

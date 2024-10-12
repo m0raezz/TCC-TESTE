@@ -15,7 +15,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
-    <title>Teste</title>
+    <title>Integra Etec</title>
+    <link rel="icon" type="image/x-icon" href="..\Images\logo1.png">
 
 
 </head>
@@ -160,6 +161,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <section name="forms" class="mt-5 pt-5 flex-grow-1">
         <div class="container">
             <h2 class="text-center mb-4">Formulário de Avaliação</h2>
+            <h6 class="text-center mb-4"><bold>ATENÇÃO</bold> a avaliação é única, então confirme que está colocando o RM certo e seu nome completo. </h6>
             <form action="" method="POST">
                 <div class="mb-3">
                     <label for="nome" class="form-label">Nome</label>

@@ -15,7 +15,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
-    <title>Teste</title>
+    <title>Administração</title>
 
     <style>
         /* Estilo para garantir que as seções ocupem a altura total da viewport */
@@ -101,17 +101,18 @@
 
                     <?php
                     require "conexao.php";
-                    $sql = "SELECT * FROM tbcomentarios WHERE condicao ='A' AND curso = 'ADM'";
+                    $sql = "SELECT * FROM tbcomentarios WHERE condicao ='A' AND curso = 'ADM' order by ano DESC";
                     $resultado = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
                     
                     while($linha = mysqli_fetch_array($resultado)) {
                     $nomeVeterano = $linha["nomeVeterano"];
                     $texto = $linha["texto"];
+                    $ano = $linha["ano"];
 
                         
                         echo "<div class='card mb-2'>";
                         echo  "<div class='card-body'>";
-                        echo  "<h5 class='card-title'>$nomeVeterano</h5>";
+                        echo  "<h5 class='card-title'>$nomeVeterano - $ano</h5>";
                         echo  "<p class='card-text'>$texto</p>";
                         echo  "</div>";
                         echo  "</div>";

@@ -18,7 +18,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Painel de Avaliações</title>
+    <title>Integra Etec</title>
+    <link rel="icon" type="image/x-icon" href="..\Images\logo1.png">
     <!-- LINKS -->
     <!-- Fontes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -189,10 +190,6 @@
                             echo "<input type='submit' name='excluir' value='Excluir' class='btn btn-danger'>";
                         echo "</form>";
 
-                        echo "<form action='' method='post' onsubmit='submitForm(event, this)'>";
-                            echo "<input type='hidden' name='rmVeterano' value='$rmVeterano'>";
-                            echo "<input type='submit' name='encaminhar' value='Encaminhar' class='btn btn-primary'>";
-                        echo "</form>";
 
                     echo "</div>";
                 echo "</div>";

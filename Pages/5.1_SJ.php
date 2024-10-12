@@ -18,7 +18,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Painel de Avaliações</title>
+    <title>Integra Etec</title>
+    <link rel="icon" type="image/x-icon" href="Images\logo1.png">
     <!-- LINKS -->
     <!-- Fontes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">

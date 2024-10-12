@@ -19,7 +19,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Painel de Avaliações</title>
+    <title>Integra Etec</title>
+    <link rel="icon" type="image/x-icon" href="..\Images\logo1.png">
     <!-- LINKS -->
     <!-- Fontes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -126,7 +127,7 @@
     <div class="tabela-lateral">
         <?php
         require "conexao.php";
-        $sql = "SELECT * FROM tbRM WHERE curso = 'INFO' ORDER BY nome";
+        $sql = "SELECT * FROM tbRM WHERE curso = 'RH' ORDER BY nome";
         $resultado = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
 
         //Cabeçalho da tabela de nome e rm
