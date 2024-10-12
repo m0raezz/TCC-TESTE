@@ -48,7 +48,7 @@
    <div class="main">
       <div class="col-md-6 col-sm-12">
          <div class="login-form">
-            <form method="post" name="login" action="">
+            <form method="post" name="login" action="testLogin.php">
                <div class="form-group">
                   <label>Código Etec</label>
                   <input type="text" class="form-control" placeholder="Etec" name="CodigoADM">
@@ -64,29 +64,6 @@
       </div>
    </div>
 
-   <?php
-   if (isset($_POST["login"])) {
-      // Verifica se os campos estão preenchidos
-      if (!empty($_POST["CodigoADM"]) && !empty($_POST["SenhaADM"])) {
-         $CodigoADM = $_POST["CodigoADM"];
-         $SenhaADM = $_POST["SenhaADM"];
-         require "conexao.php";
-
-         $query = "SELECT * FROM tbADM WHERE CodigoADM='$CodigoADM' AND SenhaADM='$SenhaADM'";
-         $sql = mysqli_query($conexao, $query) or die(mysqli_error($conexao));
-         $resultado = mysqli_num_rows($sql);
-
-         if ($resultado == 0) {
-            echo "<script>alert('Usuário ou Senha Inválida');</script>";
-         } else {
-            session_start();
-            $_SESSION["CodigoADM"] = $CodigoADM;
-            header("location:V_ADM.php"); // Redireciona para a página principal
-            exit();
-         }
-      }
-   }
-   ?>
 
 
 

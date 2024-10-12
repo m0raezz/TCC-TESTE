@@ -1,4 +1,16 @@
 <?php
+
+session_start();
+if((!isset($_SESSION['CodigoADM']) == true) && (!isset($_SESSION[ 'SenhaADM']) == true))
+{
+    
+    unset($_SESSION['CodigoADM']);
+    unset($_SESSION['SenhaADM']);
+    header('Location:login.php');
+}
+
+$logado = $_SESSION['CodigoADM'];
+
 require "conexao.php";
 
 // Excluir um registro
@@ -54,6 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -107,7 +120,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container-fluid">
             <!-- Navbar icon left -->
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="V_ADM.php">
                 <img src="../images/logo3.png" width="45" height="45" alt="Logo">
             </a>
             <a class="navbar-brand text-light" href="#">Etec Bebedouro</a>
@@ -160,6 +173,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     </li>
                     
                 </ul>
+                <a href="sair.php" class="ms-auto">
+                    <img src="../images/sair.png" width="40" height="40" alt="Logo">
+                </a>
                 
             </div>
         </div>
