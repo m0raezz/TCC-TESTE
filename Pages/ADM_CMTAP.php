@@ -1,7 +1,7 @@
-
 <?php
 
     session_start();
+   
     if((!isset($_SESSION['CodigoADM']) == true) && (!isset($_SESSION[ 'SenhaADM']) == true))
     {
         
@@ -19,7 +19,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Integra Etec</title>
-    <link rel="icon" type="image/x-icon" href="Images\logo1.png">
+    
     <!-- LINKS -->
     <!-- Fontes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -116,153 +116,90 @@
     </nav>
     <!-- End NavBar-->
 
-    <!-- Tabela Lateral Esquerda -->
-
-
-
-    <input type="checkbox" id="toggleSidebar">
-    <label for="toggleSidebar" id="toggleSidebarLabel">Expandir</label>
-    <!-- Tabela Lateral Esquerda -->
-    <div class="tabela-lateral">
-        <?php
-        require "conexao.php";
-        $sql = "SELECT * FROM tbRM WHERE curso = 'INFO' ORDER BY nome";
-        $resultado = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
-
-        //Cabeçalho da tabela de nome e rm
-        echo "<ul class='list-group'>";
-        echo "<li class='list-group-item' style='display: flex; justify-content: space-between;'>";
-            echo "<span><strong><h3>Nome</h3></strong></span>";
-            echo "<span><strong><h3>RM</h3></strong></span>";
-        echo "</li>";
-
-            while($linha=mysqli_fetch_array($resultado))
-            {
-                //Nas linhas abaixo obtém cada coluna da tabela de clientes e armazena em cada variável
-                $nome = $linha["nome"];
-                $rm = $linha["rm"];
-                //Exibe os dados
-                echo "<li class='list-group-item' style='display: flex; justify-content: space-between;'>";
-                echo "<span class='nome'>$nome</span>";
-                echo "<span class='rm'><strong>$rm</strong></span>";
-                echo "</li>";
-            }
-
-            echo "</ul>";
-            ?>
-        </div>
-    </div>
 
     <!-- Start Containers -->
 <div class="container mt-5 container-custom text-right">
     <!-- Header de Avaliações -->
     <section class="avaliacoes-header">
-        <span>Avaliações Pendentes - SJ</span>
-        <span class="badge badge-success">✅ Aprovar</span>
-        <span class="badge badge-danger">❌ Reprovado</span>
-        <span class="badge badge-primary">↪️ Reencaminhar</span>
+    <form method="GET" class="mb-4">
+            <div class="input-group mb-2">
+                <select name="curso" class="form-select">
+                    <option value="TODOS" selected>Todos os cursos</option>
+                    <option value="INFO">Informática</option>
+                    <option value="ADM">Administração</option>
+                    <option value="RH">Recursos Humanos</option>
+                    <option value="SJ">Serviços Jurídicos</option>
+                    <option value="MKT">Marketing</option>
+                </select>
+                <input type="text" name="nomeFiltro" class="form-control" placeholder="Filtrar por nome">
+                <button class="btn btn-primary" type="submit">Filtrar</button>
+            </div>
+        </form>
+        <span>Avaliações Aprovadas</span>
+
     </section>
 
     <!-- Cards de Avaliações -->
     <section class="row">
-        <?php
+            <?php
             require "conexao.php";
-            $sql = "SELECT * FROM tbcomentarios WHERE condicao ='I' AND curso = 'SJ'";
-            $resultado = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
 
-            while($linha = mysqli_fetch_array($resultado)) {
+            $cursoFiltro = isset($_GET['curso']) ? $_GET['curso'] : 'TODOS';
+            $nomeFiltro = isset($_GET['nomeFiltro']) ? $_GET['nomeFiltro'] : '';
+
+            // Definir a consulta com base nos filtros aplicados
+            if ($cursoFiltro === 'TODOS') {
+                $sql = "SELECT * FROM tbcomentarios WHERE nomeVeterano LIKE ? AND condicao = 'A' ORDER BY nomeVeterano ASC";
+                $stmt = mysqli_prepare($conexao, $sql);
+                $nomeFiltro = "%$nomeFiltro%";
+                mysqli_stmt_bind_param($stmt, "s", $nomeFiltro);
+            } else {
+                $sql = "SELECT * FROM tbcomentarios WHERE curso = ? AND nomeVeterano LIKE ? AND condicao = 'A' ORDER BY nomeVeterano ASC";
+                $stmt = mysqli_prepare($conexao, $sql);
+                $nomeFiltro = "%$nomeFiltro%";
+                mysqli_stmt_bind_param($stmt, "ss", $cursoFiltro, $nomeFiltro);
+            }
+
+            mysqli_stmt_execute($stmt);
+            $resultado = mysqli_stmt_get_result($stmt);
+
+            while ($linha = mysqli_fetch_array($resultado)) {
                 $nomeVeterano = $linha["nomeVeterano"];
                 $rmVeterano = $linha["rmVeterano"];
                 $texto = $linha["texto"];
+                $condicao = $linha["condicao"];
 
                 // Exibe o card com estrutura fixa e personalização conforme necessidade
                 echo "<div class='col-md-4 mb-4'>";
                     echo "<div class='card text-center p-3'>";
-                        echo "<div class='stars'>Nome: $nomeVeterano   </div>";
-                        echo "<div class='stars'>RM: $rmVeterano   </div><hr>";
+                        echo "<div class='stars'>Nome: $nomeVeterano</div>";
+                        echo "<div class='stars'>RM: $rmVeterano Condição: $condicao </div><hr>";
                         echo "<div class='texto'>$texto</div>";
                         echo "<div class='d-flex justify-content-around mt-3'>";
 
-                        // Add a form to handle the button click
+                        // Formulário para devolver
                         echo "<form action='' method='post' onsubmit='submitForm(event, this)'>";
                             echo "<input type='hidden' name='rmVeterano' value='$rmVeterano'>";
-                            echo "<input type='submit' name='salvar' value='Salvar' class='btn btn-success'>";
-                        echo "</form>";
-
-                        echo "<form action='' method='post' onsubmit='submitForm(event, this)'>";
-                            echo "<input type='hidden' name='rmVeterano' value='$rmVeterano'>";
-                            echo "<input type='submit' name='excluir' value='Excluir' class='btn btn-danger'>";
-                        echo "</form>";
-
-                        echo "<form action='' method='post' onsubmit='submitForm(event, this)'>";
-                            echo "<input type='hidden' name='rmVeterano' value='$rmVeterano'>";
-                            echo "<input type='submit' name='encaminhar' value='Encaminhar' class='btn btn-primary'>";
+                            echo "<input type='submit' name='devolver' value='Devolver' class='btn btn-danger'>";
                         echo "</form>";
 
                     echo "</div>";
                 echo "</div>";
             echo "</div>";
-        }
+            }
 
-        // Check if the form is submitted
-        if(isset($_POST["salvar"])) {
-            $rmVeterano = $_POST["rmVeterano"];
-            $sql = "UPDATE tbcomentarios SET condicao='A' WHERE rmVeterano='$rmVeterano'";
-            mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
-            echo '<script>window.location.href = window.location.href;</script>';
+            // Se o botão de devolução foi clicado
+            if (isset($_POST["devolver"])) {
+                $rmVeterano = $_POST["rmVeterano"];
+                $sql = "UPDATE tbcomentarios SET condicao='I' WHERE rmVeterano=?";
+                $stmt = mysqli_prepare($conexao, $sql);
+                mysqli_stmt_bind_param($stmt, "s", $rmVeterano);
+                mysqli_stmt_execute($stmt);
+                echo '<script>window.location.href = window.location.href;</script>';
+            }
+            ?>
+        </section>
 
-    
-        }
-
-        if(isset($_POST["excluir"])) {
-            $rmVeterano = $_POST["rmVeterano"];
-            $sql = "UPDATE tbcomentarios SET condicao='X' WHERE rmVeterano='$rmVeterano'";
-            mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
-            echo '<script>window.location.href = window.location.href;</script>';
-          
-        }
-
-
-        if(isset($_POST["encaminhar"])) {
-            $rmVeterano = $_POST["rmVeterano"];
-            $sql = "UPDATE tbcomentarios SET condicao='E' WHERE rmVeterano='$rmVeterano'";
-            mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
-            echo '<script>window.location.href = window.location.href;</script>';
-        }
-
-        ?>
-
-
-
-            <!-- Modal para exibir mensagem -->
-    <div class="modal fade" id="mensagemModal" tabindex="-1" aria-labelledby="mensagemModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="mensagemModalLabel">Mensagem</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <?php if (!empty($mensagem)) echo $mensagem; 
-                    
-                    ?>
-                                      
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        // Mostra o modal se houver uma mensagem
-        <?php if (!empty($mensagem)) { ?>
-            var myModal = new bootstrap.Modal(document.getElementById('mensagemModal'));
-            myModal.show();
-        <?php } ?>
-    </script>
-    </section>
 </div>
 </body>
 </html>

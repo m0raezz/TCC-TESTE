@@ -54,7 +54,7 @@
         <div class="container-fluid">
             <!-- Navbar icon left -->
             <a class="navbar-brand" href="V_ADM.php">
-                <img src="../images/logo3.png" width="45" height="45" alt="Logo">
+                <img src="../Images/logo3.png" width="45" height="45" alt="Logo">
             </a>
             <a class="navbar-brand text-light" href="V_ADM.php">Etec Bebedouro</a>
             
@@ -107,7 +107,7 @@
                     
                 </ul>
                 <a href="sair.php" class="ms-auto">
-                    <img src="../images/sair.png" width="40" height="40" alt="Logo">
+                    <img src="../Images/sair.png" width="40" height="40" alt="Logo">
                 </a>
 
                 

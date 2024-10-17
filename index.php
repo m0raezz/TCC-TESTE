@@ -39,7 +39,7 @@
         <div class="container-fluid">
             <!-- Navbar icon left -->
             <a class="navbar-brand" href="#">
-                <img src="images/logo3.png" width="45" height="45" alt="Logo">
+                <img src="Images/logo3.png" width="45" height="45" alt="Logo">
             </a>
             <a class="navbar-brand text-light" href="#">Etec Bebedouro</a>
             
@@ -76,7 +76,7 @@
                 
                 <!-- Login navbar right -->
                 <a href="./Pages/login.php" class="ms-auto">
-                    <img src="images/login.png" width="45" height="45" alt="Logo">
+                    <img src="Images/login.png" width="45" height="45" alt="Logo">
                 </a>
             </div>
         </div>

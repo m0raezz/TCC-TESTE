@@ -47,7 +47,7 @@
     <nav class="navbar navbar-expand-lg fixed-top ">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
-                <img src="../images/logo3.png" width="45" height="45" alt="Logo">
+                <img src="../Images/logo3.png" width="45" height="45" alt="Logo">
             </a>
             <a class="navbar-brand text-light" href="../index.php">Etec Bebedouro</a>
             <button class="text-light navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -71,7 +71,7 @@
                     </li>
                 </ul>
                 <a href="login.php" class="ms-auto">
-                    <img src="../images/login.png" width="45" height="48" alt="Logo">
+                    <img src="../Images/login.png" width="45" height="48" alt="Logo">
                 </a>
             </div>
         </div>
@@ -132,7 +132,7 @@
     <!-- End AV -->
 
     <!-- Start Footer -->
-    <footer class="bg-body-tertiary text-center text-lg-start ">
+    <footer class="bg-body-tertiary text-center text-lg-start fixed-bottom ">
         <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
             © 2024 Integra Etec:
             <a class="text-body" href="https://etecbebedouro.com.br">etecbebedouro.com.br</a>

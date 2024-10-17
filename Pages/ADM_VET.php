@@ -3,7 +3,6 @@
 session_start();
 if((!isset($_SESSION['CodigoADM']) == true) && (!isset($_SESSION[ 'SenhaADM']) == true))
 {
-    
     unset($_SESSION['CodigoADM']);
     unset($_SESSION['SenhaADM']);
     header('Location:login.php');
@@ -66,7 +65,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -77,18 +75,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <!-- Fontes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
                 
     <!-- Bootstrap e CSS -->
     <link rel="stylesheet" href="../style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 
     <title>Integra Etec</title>
     <link rel="icon" type="image/x-icon" href="..\Images\logo1.png">
 
     <style>
-        /* Estilos para o rodapé fixo */
         body {
             display: flex;
             flex-direction: column;
@@ -112,7 +109,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
     </div>
     <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
-    
     <script>
         new window.VLibras.Widget('https://vlibras.gov.br/app');
     </script>
@@ -122,7 +118,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div class="container-fluid">
             <!-- Navbar icon left -->
             <a class="navbar-brand" href="V_ADM.php">
-                <img src="../images/logo3.png" width="45" height="45" alt="Logo">
+                <img src="../Images/logo3.png" width="45" height="45" alt="Logo">
             </a>
             <a class="navbar-brand text-light" href="#">Etec Bebedouro</a>
             
@@ -155,7 +151,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             <li><a class="dropdown-item" href="5_SJ.php">Serviços Jurídicos - Novotec integrado</a></li>
                         </ul>
                     </li>
-
                     <li class="nav-item dropdown">
                         <a class="text-light nav-link dropdown-toggle me-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             AVALIAÇÕES
@@ -172,109 +167,106 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <li class="nav-item">
                         <a class="text-light nav-link me-2" href="ADM_VET.php">VETERANOS</a>
                     </li>
-                    
                 </ul>
                 <a href="sair.php" class="ms-auto">
-                    <img src="../images/sair.png" width="40" height="40" alt="Logo">
+                    <img src="../Images/sair.png" width="40" height="40" alt="Logo">
                 </a>
-                
             </div>
         </div>
     </nav>
     <!-- End NavBar-->
 
-
     <!-- Start Table for tbRM -->
     <div class="container mt-5 pt-5">
         <h2 class="text-center mb-4">Gerenciar RMs</h2>
 
+        <!-- Filtro por curso e nome -->
         <form method="GET" class="mb-4">
-            <div class="input-group">
-                <select name="curso" class="form-select" required>
-                    <option value="" disabled selected>Filtrar por curso</option>
+            <div class="input-group mb-2">
+                <select name="curso" class="form-select">
+                    <option value="TODOS" selected>Todos os cursos</option>
                     <option value="INFO">Informática</option>
                     <option value="ADM">Administração</option>
                     <option value="RH">Recursos Humanos</option>
                     <option value="SJ">Serviços Jurídicos</option>
                     <option value="MKT">Marketing</option>
                 </select>
-                <button type="submit" class="btn btn-primary">Filtrar</button>
+                <input type="text" name="nomeFiltro" class="form-control" placeholder="Filtrar por nome">
+                <button class="btn btn-primary" type="submit">Filtrar</button>
             </div>
         </form>
 
-        <div style="max-height: 850px; overflow-y: auto;">
-            <table class="table table-bordered table-hover">
-                <thead>
-                    <tr>
-                        <th>Nome</th>
-                        <th>RM</th>
-                        <th>Curso</th>
-                        <th>Ações</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                    // Verifica se foi feito um filtro de curso
-                    $cursoFiltro = isset($_GET['curso']) ? $_GET['curso'] : '';
+        <!-- Tabela de registros -->
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>RM</th>
+                    <th>Curso</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                // Verifica se foi feito um filtro de curso e/ou nome
+                $cursoFiltro = isset($_GET['curso']) ? $_GET['curso'] : 'TODOS';
+                $nomeFiltro = isset($_GET['nomeFiltro']) ? $_GET['nomeFiltro'] : '';
 
-                    // Se houver filtro, busca apenas os registros do curso selecionado
-                    if ($cursoFiltro) {
-                        $sqlSelect = "SELECT * FROM tbRM WHERE curso = ? ORDER BY nome ASC";
-                        $stmtSelect = mysqli_prepare($conexao, $sqlSelect);
-                        mysqli_stmt_bind_param($stmtSelect, "s", $cursoFiltro);
-                    } else {
-                        // Se não houver filtro, busca todos os registros
-                        $sqlSelect = "SELECT * FROM tbRM ORDER BY nome ASC";
-                        $stmtSelect = mysqli_prepare($conexao, $sqlSelect);
-                    }
+                // Filtro por nome, independente do curso
+                if ($nomeFiltro && $cursoFiltro === 'TODOS') {
+                    $sqlSelect = "SELECT * FROM tbRM WHERE nome LIKE ? ORDER BY nome ASC";
+                    $stmtSelect = mysqli_prepare($conexao, $sqlSelect);
+                    $nomeFiltro = "%$nomeFiltro%";
+                    mysqli_stmt_bind_param($stmtSelect, "s", $nomeFiltro);
+                } elseif ($cursoFiltro !== 'TODOS' && $nomeFiltro) {
+                    // Filtro por curso e nome
+                    $sqlSelect = "SELECT * FROM tbRM WHERE curso = ? AND nome LIKE ? ORDER BY nome ASC";
+                    $stmtSelect = mysqli_prepare($conexao, $sqlSelect);
+                    $nomeFiltro = "%$nomeFiltro%";
+                    mysqli_stmt_bind_param($stmtSelect, "ss", $cursoFiltro, $nomeFiltro);
+                } elseif ($cursoFiltro !== 'TODOS') {
+                    // Filtro somente por curso
+                    $sqlSelect = "SELECT * FROM tbRM WHERE curso = ? ORDER BY nome ASC";
+                    $stmtSelect = mysqli_prepare($conexao, $sqlSelect);
+                    mysqli_stmt_bind_param($stmtSelect, "s", $cursoFiltro);
+                } else {
+                    // Sem filtros, exibe todos os registros
+                    $sqlSelect = "SELECT * FROM tbRM ORDER BY nome ASC";
+                    $stmtSelect = mysqli_prepare($conexao, $sqlSelect);
+                }
 
-                    mysqli_stmt_execute($stmtSelect);
-                    $resultSelect = mysqli_stmt_get_result($stmtSelect);
-                    while ($row = mysqli_fetch_assoc($resultSelect)) {
-                        echo "<tr>
-                                <td>{$row['nome']}</td>
-                                <td>{$row['rm']}</td>
-                                <td>{$row['curso']}</td>
-                                <td>
-                                    <a href='?delete={$row['rm']}' class='btn btn-danger' onclick='return confirm(\"Tem certeza que deseja excluir este registro?\")'>Excluir</a>
-                                </td>
-                              </tr>";
-                    }
-                    mysqli_stmt_close($stmtSelect);
-                    ?>
-                </tbody>
-            </table>
-        </div>
+                mysqli_stmt_execute($stmtSelect);
+                $resultSelect = mysqli_stmt_get_result($stmtSelect);
 
+                while ($row = mysqli_fetch_assoc($resultSelect)) {
+                    echo "<tr>";
+                    echo "<td>{$row['nome']}</td>";
+                    echo "<td>{$row['rm']}</td>";
+                    echo "<td>{$row['curso']}</td>";
+                    echo "<td>";
+                    echo "<a href='?delete={$row['rm']}' class='btn btn-danger btn-sm' onclick=\"return confirm('Tem certeza que deseja excluir este registro?')\">Excluir</a>";
+                    echo "</td>";
+                    echo "</tr>";
+                }
 
-        <form method="GET" class="mb-4">
-            <div class="input-group">
-                <select name="deleteAll" class="form-select" required>
-                    <option value="" disabled selected>Excluir todos os registros do curso</option>
-                    <option value="INFO">Informática</option>
-                    <option value="ADM">Administração</option>
-                    <option value="RH">Recursos Humanos</option>
-                    <option value="SJ">Serviços Jurídicos</option>
-                    <option value="MKT">Marketing</option>
-                </select>
-                <button type="submit" class="btn btn-danger" onclick='return confirm("Tem certeza que deseja excluir todos os registros deste curso?")'>Excluir Todos</button>
-            </div>
-        </form>
+                mysqli_stmt_close($stmtSelect);
+                ?>
+            </tbody>
+        </table>
 
-        <h3 class="text-center mb-3">Adicionar Novo Registro</h3>
-        <form method="POST" class="mb-4">
+        <!-- Formulário para adicionar novo RM -->
+        <form method="POST" class="mt-4">
             <div class="mb-3">
-                <label for="nome" class="form-label">Nome:</label>
-                <input type="text" class="form-control" id="nome" name="nome" required>
-            </div>
-            <div class="mb-3">
-                <label for="rm" class="form-label">RM:</label>
-                <input type="text" class="form-control" id="rm" name="rm" required>
+                <label for="nome" class="form-label">Nome</label>
+                <input type="text" name="nome" class="form-control" id="nome" required>
             </div>
             <div class="mb-3">
-                <label for="curso" class="form-label">Curso:</label>
+                <label for="rm" class="form-label">RM</label>
+                <input type="text" name="rm" class="form-control" id="rm" required>
+            </div>
+            <div class="mb-3">
+                <label for="curso" class="form-label">Curso</label>
                 <select name="curso" class="form-select" required>
-                    <option value="" disabled selected>Selecione um curso</option>
                     <option value="INFO">Informática</option>
                     <option value="ADM">Administração</option>
                     <option value="RH">Recursos Humanos</option>
@@ -282,13 +274,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <option value="MKT">Marketing</option>
                 </select>
             </div>
-            <button type="submit" class="btn btn-success">Adicionar Registro</button>
+            <button type="submit" class="btn btn-primary mb-5">Adicionar RM</button>
         </form>
     </div>
     <!-- End Table for tbRM -->
 
-    <footer class="text-center py-3">
-        <p>© 2024 Etec Bebedouro. Todos os direitos reservados.</p>
+    <!-- Footer -->
+    <footer class="bg-dark text-light text-center  fixed-bottom">
+        <p>&copy; 2024 Etec Bebedouro - Todos os direitos reservados.</p>
     </footer>
 </body>
 </html>
