@@ -74,17 +74,8 @@
                     <li class="nav-item">
                         <a class="text-light nav-link me-2" href="V_ADM.php #sb">Sobre</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="text-light nav-link dropdown-toggle me-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            CURSOS
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="2_ADM.php">Administração - Novotec integrado</a></li>
-                            <li><a class="dropdown-item" href="1_INFO.php">Informática p/ Internet - Novotec integrado</a></li>
-                            <li><a class="dropdown-item" href="4_RH.php">Recursos Humanos - Novotec integrado</a></li>
-                            <li><a class="dropdown-item" href="3_MKT.php">Marketing - Novotec integrado</a></li>
-                            <li><a class="dropdown-item" href="5_SJ.php">Serviços Jurídicos - Novotec integrado</a></li>
-                        </ul>
+                    <li class="nav-item">
+                        <a class="text-light nav-link me-2" href="ADM_CMTAP.php">APROVADAS</a>
                     </li>
 
                     <li class="nav-item dropdown">
