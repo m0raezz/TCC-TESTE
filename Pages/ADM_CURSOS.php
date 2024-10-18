@@ -1,17 +1,29 @@
 <?php
-
     session_start();
-   
-    if((!isset($_SESSION['CodigoADM']) == true) && (!isset($_SESSION[ 'SenhaADM']) == true))
-    {
-        
+
+    if ((!isset($_SESSION['CodigoADM']) == true) && (!isset($_SESSION['SenhaADM']) == true)) {
         unset($_SESSION['CodigoADM']);
         unset($_SESSION['SenhaADM']);
-        header('Location:login.php');
+        header('Location: login.php');
+        exit;
     }
 
     $logado = $_SESSION['CodigoADM'];
 
+    require "conexao.php";
+
+    // Processa a edição do texto do curso
+    if (isset($_POST['Salvar'])) {
+        $curso = $_POST['curso'];
+        $novo_texto = $_POST['texto'];
+
+        $sql_atualizar = "UPDATE tbcurso SET texto = '$novo_texto' WHERE curso = '$curso'";
+        mysqli_query($conexao, $sql_atualizar) or die(mysqli_error($conexao));
+
+        // Redireciona para evitar reenvio do formulário
+        header("Location: " . $_SERVER['PHP_SELF']);
+        exit;
+    }
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -25,31 +37,27 @@
     <!-- Fontes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap" rel="stylesheet">
                 
     <!-- Bootstrap e CSS -->
     <link rel="stylesheet" href="./Pages_CSS/AV.css">
-
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-
 </head>
-    
 <body>
-        <!--V Libras-->
-        <div vw class="enabled">
+    <!--V Libras-->
+    <div vw class="enabled">
         <div vw-access-button class="active"></div>
         <div vw-plugin-wrapper>
-        <div class="vw-plugin-top-wrapper"></div>
-    </div>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
     </div>
     <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
-    
     <script>
         new window.VLibras.Widget('https://vlibras.gov.br/app');
     </script>
 
-    <!-- Start NavBar-->
+    <!-- Start NavBar -->
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container-fluid">
             <!-- Navbar icon left -->
@@ -78,7 +86,6 @@
                     <li class="nav-item">
                         <a class="text-light nav-link me-2" href="ADM_CMTAP.php">APROVADAS</a>
                     </li>
-
                     <li class="nav-item dropdown">
                         <a class="text-light nav-link dropdown-toggle me-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             AVALIAÇÕES
@@ -109,92 +116,74 @@
             </div>
         </div>
     </nav>
-    <!-- End NavBar-->
-
+    <!-- End NavBar -->
 
     <!-- Start Containers -->
-<div class="container mt-5 container-custom text-right">
-    <!-- Header de Avaliações -->
-    <section class="avaliacoes-header">
-    <form method="GET" class="mb-4">
-            <div class="input-group mb-2">
-                <select name="curso" class="form-select">
-                    <option value="TODOS" selected>Todos os cursos</option>
-                    <option value="INFO">Informática</option>
-                    <option value="ADM">Administração</option>
-                    <option value="RH">Recursos Humanos</option>
-                    <option value="SJ">Serviços Jurídicos</option>
-                    <option value="MKT">Marketing</option>
-                </select>
-                <input type="text" name="nomeFiltro" class="form-control" placeholder="Filtrar por nome">
-                <button class="btn btn-primary" type="submit">Filtrar</button>
-            </div>
-        </form>
-        <span>Avaliações Aprovadas</span>
-
-    </section>
-
-    <!-- Cards de Avaliações -->
-    <section class="row">
-            <?php
-            require "conexao.php";
-
-            $cursoFiltro = isset($_GET['curso']) ? $_GET['curso'] : 'TODOS';
-            $nomeFiltro = isset($_GET['nomeFiltro']) ? $_GET['nomeFiltro'] : '';
-
-            // Definir a consulta com base nos filtros aplicados
-            if ($cursoFiltro === 'TODOS') {
-                $sql = "SELECT * FROM tbcomentarios WHERE nomeVeterano LIKE ? AND condicao = 'A' ORDER BY nomeVeterano ASC";
-                $stmt = mysqli_prepare($conexao, $sql);
-                $nomeFiltro = "%$nomeFiltro%";
-                mysqli_stmt_bind_param($stmt, "s", $nomeFiltro);
-            } else {
-                $sql = "SELECT * FROM tbcomentarios WHERE curso = ? AND nomeVeterano LIKE ? AND condicao = 'A' ORDER BY nomeVeterano ASC";
-                $stmt = mysqli_prepare($conexao, $sql);
-                $nomeFiltro = "%$nomeFiltro%";
-                mysqli_stmt_bind_param($stmt, "ss", $cursoFiltro, $nomeFiltro);
-            }
-
-            mysqli_stmt_execute($stmt);
-            $resultado = mysqli_stmt_get_result($stmt);
-
-            while ($linha = mysqli_fetch_array($resultado)) {
-                $nomeVeterano = $linha["nomeVeterano"];
-                $rmVeterano = $linha["rmVeterano"];
-                $texto = $linha["texto"];
-                $condicao = $linha["condicao"];
-
-                // Exibe o card com estrutura fixa e personalização conforme necessidade
-                echo "<div class='col-md-4 mb-4'>";
-                    echo "<div class='card text-center p-3'>";
-                        echo "<div class='stars'>Nome: $nomeVeterano</div>";
-                        echo "<div class='stars'>RM: $rmVeterano Condição: $condicao </div><hr>";
-                        echo "<div class='texto'>$texto</div>";
-                        echo "<div class='d-flex justify-content-around mt-3'>";
-
-                        // Formulário para devolver
-                        echo "<form action='' method='post' onsubmit='submitForm(event, this)'>";
-                            echo "<input type='hidden' name='rmVeterano' value='$rmVeterano'>";
-                            echo "<input type='submit' name='devolver' value='Devolver' class='btn btn-danger'>";
-                        echo "</form>";
-
-                    echo "</div>";
-                echo "</div>";
-            echo "</div>";
-            }
-
-            // Se o botão de devolução foi clicado
-            if (isset($_POST["devolver"])) {
-                $rmVeterano = $_POST["rmVeterano"];
-                $sql = "UPDATE tbcomentarios SET condicao='I' WHERE rmVeterano=?";
-                $stmt = mysqli_prepare($conexao, $sql);
-                mysqli_stmt_bind_param($stmt, "s", $rmVeterano);
-                mysqli_stmt_execute($stmt);
-                echo '<script>window.location.href = window.location.href;</script>';
-            }
-            ?>
+    <div class="container mt-5 container-custom text-right">
+        <!-- Header de Avaliações -->
+        <section class="avaliacoes-header">
+            <span>Textos dos cursos</span>
         </section>
 
-</div>
+        <!-- Cards de Avaliações -->
+<!-- Cards de Avaliações -->
+<section class="row g-4">
+    <?php
+    $sql_curso = "SELECT * FROM tbcurso";
+    $resultado_curso = mysqli_query($conexao, $sql_curso) or die(mysqli_error($conexao));
+
+    while ($linha_curso = mysqli_fetch_assoc($resultado_curso)) {
+        $texto = $linha_curso["texto"];
+        $curso = $linha_curso["curso"];
+
+        echo "<div class='col-md-4'>"; // Remova o d-flex e align-items-stretch
+            echo "<div class='card text-center p-3'>"; // Não defina uma altura fixa
+                echo "<div class='stars'> $curso </div><hr>";
+                echo "<div class='texto'>$texto</div>";
+                echo "<div class='d-flex justify-content-around mt-3'>";
+                    // Botão Editar
+                    echo "<button class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#editarModal$curso'>Editar</button>";
+                    // Botão Devolver
+                    echo "<form action='' method='post' onsubmit='submitForm(event, this)'>";
+                        echo "<input type='hidden' name='curso' value='$curso'>";
+                        echo "<input type='submit' name='Devolver' value='Devolver' class='btn btn-danger'>";
+                    echo "</form>";
+                echo "</div>";
+            echo "</div>";
+        echo "</div>";
+
+        // Modal para Edição
+        echo "<div class='modal fade' id='editarModal$curso' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>";
+            echo "<div class='modal-dialog'>";
+                echo "<div class='modal-content'>";
+                    echo "<div class='modal-header'>";
+                        echo "<h5 class='modal-title'>Editar $curso</h5>";
+                        echo "<button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>";
+                    echo "</div>";
+                    echo "<form method='POST' action=''>";
+                        echo "<div class='modal-body'>";
+                            echo "<input type='hidden' name='curso' value='$curso'>";
+                            echo "<div class='mb-3'>";
+                                echo "<label for='textoCurso' class='form-label'>Texto do curso</label>";
+                                echo "<textarea style='min-height: 500px; max-height: 100%;' class='form-control' id='textoCurso' name='texto' rows='3'>$texto</textarea>";
+                            echo "</div>";
+                        echo "</div>";
+                        echo "<div class='modal-footer'>";
+                            echo "<button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Cancelar</button>";
+                            echo "<button type='submit' name='Salvar' class='btn btn-primary'>Salvar</button>";
+                        echo "</div>";
+                    echo "</form>";
+                echo "</div>";
+            echo "</div>";
+        echo "</div>";
+    }
+    ?>
+</section>
+
+    </div>
+
+    <!-- Scripts Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

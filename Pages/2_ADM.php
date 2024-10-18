@@ -16,6 +16,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
     <title>Administração</title>
+    <link rel="icon" type="image/x-icon" href="..\Images\logo1.png">
 
     <style>
         /* Estilo para garantir que as seções ocupem a altura total da viewport */
@@ -84,9 +85,19 @@
         <div class="row full-height">
             <div class="col-md-6 d-flex flex-column justify-content-top align-items-center texto-es" style="background-color: #f8f9fa;" name="Esquerda">
                 <h1 class="text-center texto-ti">ADMINISTRAÇÃO</h1>
-                <p class="texto-curso">O curso é estruturado em três séries anuais, com até oito aulas diárias em período integral. A matriz curricular inclui projetos de aprofundamento voltados para as principais áreas do conhecimento, alinhados às ocupações demandadas pelo mercado de trabalho. Ao final do programa, o aluno recebe um diploma de técnico, que habilita tanto ao exercício da profissão quanto à continuidade dos estudos no nível superior. <br>
-                <br>O currículo abrange o funcionamento de diversas organizações, incluindo empresas privadas, ONGs, órgãos públicos e setores de comércio e indústria. Para entender os conteúdos abordados, como história da administração, evolução organizacional, contabilidade e legislação empresarial, o estudante precisa de fundamentos em língua portuguesa, matemática, história e geografia. Além disso, aprenderá a analisar a viabilidade de negócios e o comportamento do consumidor, técnicas de atendimento ao cliente, empreendedorismo e estratégias de planejamento organizacional.<br>
-                <br>O técnico em Administração tem diversas oportunidades de atuação em diferentes departamentos. No setor de compras, pode elaborar pedidos, cadastrar fornecedores e conferir a entrega de mercadorias. Na produção, é responsável pela elaboração de planilhas de controle de processos e produtos, registrando a quantidade produzida. No departamento de vendas, pode desenvolver planilhas para monitorar o desempenho das vendas, cadastrar clientes e gerenciar a documentação fiscal. No setor de Recursos Humanos, atuará no cálculo de salários e benefícios, além de apoiar processos de contratação e demissão. Em todas as áreas, o técnico também estará apto a atender clientes e fornecedores, redigindo documentos como e-mails, memorandos e atas.</p>
+                <p class="texto-curso">
+                <?php
+                    require "conexao.php";
+                    $sql_curso = "SELECT texto FROM tbcurso WHERE curso = 'ADM'";
+                    $resultado_curso = mysqli_query($conexao, $sql_curso) or die(mysqli_error($conexao));
+
+                    if ($linha_curso = mysqli_fetch_assoc($resultado_curso)) {
+                        echo nl2br($linha_curso['texto']);  // nl2br para preservar quebras de linha
+                    } else {
+                        echo "Curso não encontrado.";
+                    }
+                    ?>
+                    </p>
                 <a href="form.php" class="bt">Avalie o curso</a>
             </div>
 
@@ -119,7 +130,7 @@
                         
                     }
                         
-                        ?>
+                    ?>
                     </div>
                     
                     
@@ -127,6 +138,7 @@
             </div>
         </div>
     </div>
+
     <!-- End AV -->
 
     <!-- Start Footer -->

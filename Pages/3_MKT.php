@@ -16,6 +16,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
     <title>Marketing</title>
+    <link rel="icon" type="image/x-icon" href="..\Images\logo1.png">
 
     <style>
         /* Estilo para garantir que as seções ocupem a altura total da viewport */
@@ -84,10 +85,20 @@
         <div class="row full-height">
             <div class="col-md-6 d-flex flex-column justify-content-top align-items-center texto-es" style="background-color: #f8f9fa;" name="Esquerda">
                 <h1 class="text-center texto-ti">MARKETING</h1>
-                <p class="texto-curso">O curso é estruturado em três séries anuais, com uma carga horária de seis aulas diárias em meio período (manhã). A matriz curricular integra disciplinas da Base Nacional Comum do Ensino Médio com componentes do Ensino Técnico. Ao concluir as três séries, o aluno terá completado o Ensino Médio e receberá o diploma de Técnico, o que lhe permitirá exercer a habilitação profissional e prosseguir com os estudos em nível superior.<br>
-                <br>O estudante aprenderá que marketing transcende a mera publicidade; trata-se de um processo que inicia com a compreensão das necessidades do consumidor, visando o desenvolvimento de produtos, serviços e ideias a serem comercializados. Para aprofundar-se nesse campo, o aluno necessitará de conhecimentos em língua portuguesa, geografia e matemática. Aprenderá a definir o público-alvo de cada produto ou serviço e a analisar o processo de interação entre vendedores e compradores. Além disso, estudará as diversas ferramentas de comunicação, como publicidade, telemarketing e promoções de vendas. O curso também contemplará a criação de logotipos, rótulos e embalagens. A formação técnica em Marketing será complementada por disciplinas como Administração de Empresas, Legislação (incluindo o Código de Defesa do Consumidor) e aulas de Inglês e Espanhol voltadas à leitura de textos.<br>
-                <br>O técnico em Marketing estará apto a realizar pesquisas de mercado para identificar o comportamento do consumidor. No ponto de venda (como supermercados, shoppings e lojas), poderá demonstrar produtos, montar materiais promocionais e negociar espaços para a exposição adequada dos itens a serem comercializados. Também será responsável pela elaboração de orçamentos para a execução de ações, como promoções e campanhas publicitárias, calculando os custos envolvidos. Ademais, poderá acompanhar as ações implementadas para avaliar se os resultados foram satisfatórios. Em pequenas empresas, o profissional poderá desenvolver logotipos, rótulos e criar conteúdo para redes sociais.</p>
-                <a href="form.php" class="bt">Avalie o curso</a>
+                <p class="texto-curso">
+                <?php
+                    require "conexao.php";
+                    $sql_curso = "SELECT texto FROM tbcurso WHERE curso = 'MKT'";
+                    $resultado_curso = mysqli_query($conexao, $sql_curso) or die(mysqli_error($conexao));
+
+                    if ($linha_curso = mysqli_fetch_assoc($resultado_curso)) {
+                        echo nl2br($linha_curso['texto']);  // nl2br para preservar quebras de linha
+                    } else {
+                        echo "Curso não encontrado.";
+                    }
+                    ?>
+                    </p>
+                    <a href="form.php" class="bt">Avalie o curso</a>
             </div>
 
 

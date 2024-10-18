@@ -158,6 +158,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <li class="nav-item">
                         <a class="text-light nav-link me-2" href="ADM_VET.php">VETERANOS</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="text-light nav-link me-2" href="ADM_CURSOS.php">TEXTOS DOS CURSOS</a>
+                    </li>
                 </ul>
                 <a href="sair.php" class="ms-auto">
                     <img src="../Images/sair.png" width="40" height="40" alt="Logo">

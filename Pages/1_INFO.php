@@ -16,6 +16,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
     <title>Informática</title>
+    <link rel="icon" type="image/x-icon" href="..\Images\logo1.png">
 
     <style>
         /* Estilo para garantir que as seções ocupem a altura total da viewport */
@@ -85,10 +86,18 @@
             <div class="col-md-6 d-flex flex-column justify-content-top align-items-center texto-es" style="background-color: #f8f9fa;" name="Esquerda">
                 <h1 class="text-center texto-ti">INFORMÁTICA PARA INTERNET</h1>
                 <p class="texto-curso">
-                O currículo é estruturado em três séries anuais interligadas, com a carga horária de até oito aulas diárias em período integral. A matriz curricular inclui projetos de aprofundamento focados nas diversas áreas do conhecimento, correspondendo às ocupações identificadas no mercado de trabalho. Ao concluir as três séries, o aluno receberá o diploma de técnico, o que lhe conferirá o direito de exercer a habilitação profissional e prosseguir com os estudos em nível superior.<br>
-                <br>O curso abrange o processo de criação de sites e o desenvolvimento de programas que podem ser integrados a páginas na internet. Para isso, o aluno estudará raciocínio lógico e linguagens de programação, que permitem a implementação de comandos para desenvolver funcionalidades e estruturar um site. Além disso, os estudantes terão a oportunidade de aprender fundamentos de design, visando à criação de páginas mais atraentes e de fácil navegação. O curso também contempla a criação e a modificação de bancos de dados que alimentarão os sites. Noções de marketing digital e empreendedorismo serão abordadas ao longo da formação.<br>
-                <br>O profissional formado será capaz de criar websites que atendam às necessidades dos clientes, identificando e sugerindo as melhores soluções; realizar a manutenção de portais, sites e intranets; gerenciar a identidade visual das páginas de uma empresa; customizar plataformas de conteúdo para a web, como blogs e e-commerces; desenvolver e manter bancos de dados para websites; adaptar páginas para incorporar vídeos, áudios e funções que favoreçam a acessibilidade, como comandos de voz; otimizar imagens para uso na internet; e preparar layouts para newsletters ou e-mails marketing, entre outras atividades.
-                </p>
+                    <?php
+                    require "conexao.php";
+                    $sql_curso = "SELECT texto FROM tbcurso WHERE curso = 'INFO'";
+                    $resultado_curso = mysqli_query($conexao, $sql_curso) or die(mysqli_error($conexao));
+
+                    if ($linha_curso = mysqli_fetch_assoc($resultado_curso)) {
+                        echo nl2br($linha_curso['texto']);  // nl2br para preservar quebras de linha
+                    } else {
+                        echo "Curso não encontrado.";
+                    }
+                    ?>
+                    </p>
                 <a href="form.php" class="bt">Avalie o curso</a>
             </div>
 

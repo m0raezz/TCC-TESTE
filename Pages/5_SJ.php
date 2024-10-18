@@ -16,6 +16,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
     <title>Serviços Jurícos</title>
+    <link rel="icon" type="image/x-icon" href="..\Images\logo1.png">
 
     <style>
         /* Estilo para garantir que as seções ocupem a altura total da viewport */
@@ -84,10 +85,20 @@
         <div class="row full-height">
             <div class="col-md-6 d-flex flex-column justify-content-top align-items-center texto-es" style="background-color: #f8f9fa;" name="Esquerda">
                 <h1 class="text-center texto-ti">SERVIÇOS JURÍDICOS</h1>
-                <p class="texto-curso">O curso é estruturado em três séries anuais, com uma carga horária de seis aulas diárias em meio período (manhã). A matriz curricular combina disciplinas da Base Nacional Comum do Ensino Médio com componentes do Ensino Técnico. Ao concluir as três séries, o aluno terá finalizado o Ensino Médio e receberá o diploma de Técnico, o que lhe permitirá exercer a habilitação profissional e continuar os estudos em nível superior.<br>
-                <br>Com foco nas leis e normas, o curso abrange diversas áreas do Direito. O aluno estudará a Constituição Federal (Direito Constitucional), os mecanismos de punição a crimes (Direito Penal), as regras que regem as relações e disputas entre indivíduos (Direito Civil), o funcionamento dos órgãos públicos (Direito Administrativo), as normas que regulam as relações comerciais (Direito Empresarial), os direitos e deveres entre empregadores e empregados (Direito do Trabalho), a legislação tributária (Direito Tributário) e a proteção ao consumidor (Direito do Consumidor), entre outros temas. O estudante também aprenderá a elaborar e redigir processos, contratos e documentos jurídicos. Além do estudo das leis, o aluno terá formação em conceitos de administração de empresas, matemática financeira, técnicas de atendimento ao cliente e inglês instrumental, sendo a língua portuguesa fundamental.<br>
-                <br>O técnico em Direito atuará como auxiliar do advogado, oferecendo suporte técnico e administrativo a empresas. Suas responsabilidades incluem prestar atendimento ao público, verificar os prazos de cada etapa de processos judiciais, calcular os honorários dos advogados e os custos dos processos, receber e enviar documentos, registrando a movimentação em sistemas ou livros de protocolo, redigir contratos, ofícios, processos e cartas comerciais, além de arquivar processos e realizar outras atividades pertinentes.</p>
-                <a href="form.php" class="bt">Avalie o curso</a>
+                <p class="texto-curso">
+                <?php
+                    require "conexao.php";
+                    $sql_curso = "SELECT texto FROM tbcurso WHERE curso = 'SJ'";
+                    $resultado_curso = mysqli_query($conexao, $sql_curso) or die(mysqli_error($conexao));
+
+                    if ($linha_curso = mysqli_fetch_assoc($resultado_curso)) {
+                        echo nl2br($linha_curso['texto']);  // nl2br para preservar quebras de linha
+                    } else {
+                        echo "Curso não encontrado.";
+                    }
+                    ?>
+                    </p>
+                    <a href="form.php" class="bt">Avalie o curso</a>
             </div>
 
 

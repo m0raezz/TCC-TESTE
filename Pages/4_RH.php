@@ -16,6 +16,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
     <title>Recursos Humanos</title>
+    <link rel="icon" type="image/x-icon" href="..\Images\logo1.png">
 
     <style>
         /* Estilo para garantir que as seções ocupem a altura total da viewport */
@@ -84,10 +85,20 @@
         <div class="row full-height">
             <div class="col-md-6 d-flex flex-column justify-content-top align-items-center texto-es" style="background-color: #f8f9fa;" name="Esquerda">
                 <h1 class="text-center texto-ti">RECURSOS HUMANOS</h1>
-                <p class="texto-curso">O curso é estruturado em três séries anuais, com uma carga horária de seis aulas diárias em meio período (manhã ou noite). A matriz curricular integra disciplinas da Base Nacional Comum do Ensino Médio com componentes do Ensino Técnico. Ao concluir as três séries, o aluno terá finalizado o Ensino Médio e receberá o diploma de Técnico, o que lhe permitirá exercer a habilitação profissional e prosseguir com os estudos em nível superior.<br>
-                <br>O estudante necessitará de conhecimentos em língua portuguesa, matemática e história para compreender o curso e desempenhar as funções do setor de Recursos Humanos de uma empresa. Essas funções incluem a contratação, demissão e aposentadoria de funcionários, bem como a oferta de benefícios (vale-transporte, plano de saúde, vale-refeição etc.). Para tal, será fundamental o estudo das leis que regulam os direitos e deveres do empregador e dos empregados (legislação trabalhista). O aluno também aprenderá noções de psicologia, essenciais para entender as dinâmicas de relacionamento no ambiente de trabalho, realizar processos de recrutamento e seleção de novos funcionários e promover ações de motivação.<br>
-                <br>Entre as atribuições do técnico em Recursos Humanos, destacam-se: anunciar vagas de emprego, descrevendo as atribuições dos cargos a serem preenchidos; aplicar testes em processos seletivos; realizar cálculos para determinar os valores a serem descontados do salário dos funcionários, como o Imposto de Renda e a contribuição ao INSS, além de porcentagens referentes a benefícios; inserir informações no sistema para a geração de demonstrativos de pagamentos (holerites ou contracheques); cuidar da documentação necessária para aposentadoria, contratação e demissão de profissionais, incluindo o preenchimento de informações na carteira de trabalho; organizar e arquivar documentos do setor; registrar e controlar períodos de férias e afastamentos; e auxiliar no treinamento e capacitação dos empregados.</p>
-                <a href="form.php" class="bt">Avalie o curso</a>
+                <p class="texto-curso">
+                <?php
+                    require "conexao.php";
+                    $sql_curso = "SELECT texto FROM tbcurso WHERE curso = 'RH'";
+                    $resultado_curso = mysqli_query($conexao, $sql_curso) or die(mysqli_error($conexao));
+
+                    if ($linha_curso = mysqli_fetch_assoc($resultado_curso)) {
+                        echo nl2br($linha_curso['texto']);  // nl2br para preservar quebras de linha
+                    } else {
+                        echo "Curso não encontrado.";
+                    }
+                    ?>
+                    </p>
+                    <a href="form.php" class="bt">Avalie o curso</a>
             </div>
 
 

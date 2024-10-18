@@ -19,6 +19,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Integra Etec</title>
+    <link rel="icon" type="image/x-icon" href="..\Images\logo1.png">
     
     <!-- LINKS -->
     <!-- Fontes -->
@@ -93,6 +94,9 @@
                     </li>
                     <li class="nav-item">
                         <a class="text-light nav-link me-2" href="ADM_VET.php">VETERANOS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="text-light nav-link me-2" href="ADM_CURSOS.php">TEXTOS DOS CURSOS</a>
                     </li>
                     
                 </ul>
