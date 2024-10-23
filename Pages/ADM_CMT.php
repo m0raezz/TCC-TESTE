@@ -29,6 +29,7 @@
                 
     <!-- Bootstrap e CSS -->
     <link rel="stylesheet" href="./Pages_CSS/AV.css">
+    
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
@@ -54,7 +55,7 @@
         <div class="container-fluid">
             <!-- Navbar icon left -->
             <a class="navbar-brand" href="V_ADM.php">
-                <img src="../Images/logo3.png" width="45" height="45" alt="Logo">
+                <img src="../images/logo3.png" width="45" height="45" alt="Logo">
             </a>
             <a class="navbar-brand text-light" href="V_ADM.php">Etec Bebedouro</a>
             
@@ -67,17 +68,19 @@
             <div class="text-light collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="text-light nav-link active me-2" aria-current="page" href="V_ADM.php #im">Inicio</a>
+                        <a class="text-light nav-link active me-2" aria-current="page" href="V_ADM.php #im">INICIO</a>
                     </li>
                     <li class="nav-item">
-                        <a class="text-light nav-link me-2" href="V_ADM.php #eq">Equipe</a>
+                        <a class="text-light nav-link me-2" href="V_ADM.php #eq">EQUIPE</a>
                     </li>
                     <li class="nav-item">
-                        <a class="text-light nav-link me-2" href="V_ADM.php #sb">Sobre</a>
+                        <a class="text-light nav-link me-2" href="V_ADM.php#sb">SOBRE</a>
                     </li>
                     <li class="nav-item">
                         <a class="text-light nav-link me-2" href="ADM_CMTAP.php">APROVADAS</a>
                     </li>
+
+
 
                     <li class="nav-item dropdown">
                         <a class="text-light nav-link dropdown-toggle me-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -101,7 +104,7 @@
                     
                 </ul>
                 <a href="sair.php" class="ms-auto">
-                    <img src="../Images/sair.png" width="40" height="40" alt="Logo">
+                    <img src="../images/sair.png" width="40" height="40" alt="Logo">
                 </a>
                 
                 <!-- Login navbar right -->
@@ -130,7 +133,7 @@
                 <button class="btn btn-primary" type="submit">Filtrar</button>
             </div>
         </form>
-        <span>Avaliações Aprovadas</span>
+        <span>Avaliações REENCAMINHADAS ou EXCLUIDAS</span>
 
     </section>
 
@@ -178,7 +181,12 @@
                         // Formulário para devolver
                         echo "<form action='' method='post' onsubmit='submitForm(event, this)'>";
                             echo "<input type='hidden' name='rmVeterano' value='$rmVeterano'>";
-                            echo "<input type='submit' name='devolver' value='Devolver' class='btn btn-danger'>";
+                            echo "<input type='submit' name='devolver' value='Devolver' class='btn btn-primary'>";
+                        echo "</form>";
+
+                        echo "<form action='' method='post' onsubmit='submitForm(event, this)'>";
+                            echo "<input type='hidden' name='rmVeterano' value='$rmVeterano'>";
+                            echo "<input type='submit' name='devolver' value='Excluir' class='btn btn-danger'>";
                         echo "</form>";
 
                     echo "</div>";
@@ -190,6 +198,15 @@
             if (isset($_POST["devolver"])) {
                 $rmVeterano = $_POST["rmVeterano"];
                 $sql = "UPDATE tbcomentarios SET condicao='I' WHERE rmVeterano=?";
+                $stmt = mysqli_prepare($conexao, $sql);
+                mysqli_stmt_bind_param($stmt, "s", $rmVeterano);
+                mysqli_stmt_execute($stmt);
+                echo '<script>window.location.href = window.location.href;</script>';
+            }
+
+            if (isset($_POST["excluir"])) {
+                $rmVeterano = $_POST["rmVeterano"];
+                $sql = "DELETE tbcomentarios WHERE rmVeterano=?";
                 $stmt = mysqli_prepare($conexao, $sql);
                 mysqli_stmt_bind_param($stmt, "s", $rmVeterano);
                 mysqli_stmt_execute($stmt);
