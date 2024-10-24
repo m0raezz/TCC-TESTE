@@ -52,13 +52,13 @@
             <div class="text-light collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="text-light nav-link active me-2" aria-current="page" href="#im">Inicio</a>
+                        <a class="text-light nav-link active me-2" aria-current="page" href="#im">INICIO</a>
                     </li>
                     <li class="nav-item">
-                        <a class="text-light nav-link me-2" href="#eq">Equipe</a>
+                        <a class="text-light nav-link me-2" href="#eq">EQUIPE</a>
                     </li>
                     <li class="nav-item">
-                        <a class="text-light nav-link me-2" href="#sb">Sobre</a>
+                        <a class="text-light nav-link me-2" href="#sb">SOBRE</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="text-light nav-link dropdown-toggle me-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">

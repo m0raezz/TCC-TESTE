@@ -66,16 +66,13 @@
             <div class="text-light collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="text-light nav-link active me-2" aria-current="page" href="#im">Inicio</a>
+                        <a class="text-light nav-link active me-2" aria-current="page" href="#im">INICIO</a>
                     </li>
                     <li class="nav-item">
-                        <a class="text-light nav-link me-2" href="#eq">Equipe</a>
+                        <a class="text-light nav-link me-2" href="#eq">EQUIPE</a>
                     </li>
                     <li class="nav-item">
-                        <a class="text-light nav-link me-2" href="#sb">Sobre</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="text-light nav-link me-2" href="ADM_CMTAP.php">APROVADAS</a>
+                        <a class="text-light nav-link me-2" href="#sb">SOBRE</a>
                     </li>
 
 
@@ -90,22 +87,28 @@
                             <li><a class="dropdown-item" href="4.1_RH.php">RH</a></li>
                             <li><a class="dropdown-item" href="3.1_MKT.php">MKT</a></li>
                             <li><a class="dropdown-item" href="5.1_SJ.php">SJ</a></li>
-                            <li><a class="dropdown-item" href="ADM_CMT.php">REENCAMINHADAS</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="text-light nav-link me-2" href="ADM_VET.php">VETERANOS</a>
+                        <a class="text-light nav-link me-2" href="ADM_CMTAP.php">| AV. APROVADAS</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="text-light nav-link me-2" href="ADM_CMT.php">| AV. REENCAMINHADAS</a>
+                    </li>
+ 
+                    <li class="nav-item">
+                        <a class="text-light nav-link me-2" href="ADM_VET.php">| VETERANOS</a>
                     </li>
                     <li class="nav-item">
-                        <a class="text-light nav-link me-2" href="ADM_CURSOS.php">TEXTOS DOS CURSOS</a>
+                        <a class="text-light nav-link me-2" href="ADM_CURSOS.php">| TEXTOS DOS CURSOS</a>
                     </li>
                     
                 </ul>
                 <a href="sair.php" class="ms-auto">
                     <img src="../images/sair.png" width="40" height="40" alt="Logo">
                 </a>
-                
-                <!-- Login navbar right -->
+            
 
             </div>
         </div>

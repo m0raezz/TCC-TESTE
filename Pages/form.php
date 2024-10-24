@@ -90,7 +90,7 @@ $mensagem = ""; // Variável para armazenar a mensagem de feedback
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Captura os dados do formulário
-    $nome = $_POST['nome'];
+    $nome = strtoupper($_POST['nome']);
     $rm = $_POST['rm'];
     $curso = $_POST['curso'];
     $observacoes = $_POST['observacoes'];

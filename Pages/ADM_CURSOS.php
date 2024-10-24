@@ -62,30 +62,31 @@
         <div class="container-fluid">
             <!-- Navbar icon left -->
             <a class="navbar-brand" href="V_ADM.php">
-                <img src="../Images/logo3.png" width="45" height="45" alt="Logo">
+                <img src="../images/logo3.png" width="45" height="45" alt="Logo">
             </a>
             <a class="navbar-brand text-light" href="V_ADM.php">Etec Bebedouro</a>
             
             <!-- Navbar for mobile view -->
-            <button class="text-light navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="text-light navbar-toggler-icon"></span>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span> <!-- Usar o ícone padrão do Bootstrap -->
             </button>
+
             
             <!-- Navbar dropdown -->
             <div class="text-light collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="text-light nav-link active me-2" aria-current="page" href="V_ADM.php #im">Inicio</a>
+                        <a class="text-light nav-link active me-2" aria-current="page" href="V_ADM.php #im">INICIO</a>
                     </li>
                     <li class="nav-item">
-                        <a class="text-light nav-link me-2" href="V_ADM.php #eq">Equipe</a>
+                        <a class="text-light nav-link me-2" href="V_ADM.php #eq">EQUIPE</a>
                     </li>
                     <li class="nav-item">
-                        <a class="text-light nav-link me-2" href="V_ADM.php #sb">Sobre</a>
+                        <a class="text-light nav-link me-2" href="V_ADM.php #sb">SOBRE</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="text-light nav-link me-2" href="ADM_CMTAP.php">APROVADAS</a>
-                    </li>
+
+
+
                     <li class="nav-item dropdown">
                         <a class="text-light nav-link dropdown-toggle me-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             AVALIAÇÕES
@@ -96,22 +97,28 @@
                             <li><a class="dropdown-item" href="4.1_RH.php">RH</a></li>
                             <li><a class="dropdown-item" href="3.1_MKT.php">MKT</a></li>
                             <li><a class="dropdown-item" href="5.1_SJ.php">SJ</a></li>
-                            <li><a class="dropdown-item" href="ADM_CMT.php">REENCAMINHADAS</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="text-light nav-link me-2" href="ADM_VET.php">VETERANOS</a>
+                        <a class="text-light nav-link me-2" href="ADM_CMTAP.php">| AV. APROVADAS</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="text-light nav-link me-2" href="ADM_CMT.php">| AV. REENCAMINHADAS</a>
+                    </li>
+ 
+                    <li class="nav-item">
+                        <a class="text-light nav-link me-2" href="ADM_VET.php">| VETERANOS</a>
                     </li>
                     <li class="nav-item">
-                        <a class="text-light nav-link me-2" href="ADM_CURSOS.php">TEXTOS DOS CURSOS</a>
+                        <a class="text-light nav-link me-2" href="ADM_CURSOS.php">| TEXTOS DOS CURSOS</a>
                     </li>
                     
                 </ul>
                 <a href="sair.php" class="ms-auto">
-                    <img src="../Images/sair.png" width="40" height="40" alt="Logo">
+                    <img src="../images/sair.png" width="40" height="40" alt="Logo">
                 </a>
-                
-                <!-- Login navbar right -->
+            
 
             </div>
         </div>
@@ -143,11 +150,6 @@
                 echo "<div class='d-flex justify-content-around mt-3'>";
                     // Botão Editar
                     echo "<button class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#editarModal$curso'>Editar</button>";
-                    // Botão Devolver
-                    echo "<form action='' method='post' onsubmit='submitForm(event, this)'>";
-                        echo "<input type='hidden' name='curso' value='$curso'>";
-                        echo "<input type='submit' name='Devolver' value='Devolver' class='btn btn-danger'>";
-                    echo "</form>";
                 echo "</div>";
             echo "</div>";
         echo "</div>";
@@ -181,6 +183,9 @@
 </section>
 
     </div>
+    <footer class="bg-dark text-light text-center  fixed-bottom">
+        <p>&copy; 2024 Etec Bebedouro - Todos os direitos reservados.</p>
+    </footer>
 
     <!-- Scripts Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"></script>
